@@ -1,12 +1,21 @@
 {
-    "name": "@cromaui/core",
-    "version": "1.0.0",
-    "main": "index.js",
-    "license": "MIT",
-    "private": "true",
-    "npmClient": "yarn",
-    "workspaces": [
-      "packages/*"
-    ]
+  "name": "@cromaui/core",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": "true",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "stream": true,
+  "workspaces": [
+    "packages/*",
+    "playground/*"
+  ],
+  "devDependencies": {
+    "lerna": "^7.4.1"
+  },
+  "scripts": {
+    "build": "yarn lerna run build",
+    "dev": "yarn lerna run dev"
   }
-  
+}
