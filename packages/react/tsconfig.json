@@ -13,8 +13,9 @@
     "noUnusedParameters": true,
     "declaration": true,
     "moduleResolution": "node",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowJs": true,
   },
-  "include": ["src"],
+  "include": ["src", "../storybook/utils"],
   "exclude": ["node_modules", "dist"]
 }

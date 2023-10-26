@@ -1,4 +1,5 @@
 export const Navy = {
+    50: '#BECDDC',
     100: '#e6ebf0',
     200: '#becddc',
     300: '#95acc5',
@@ -14,6 +15,7 @@ export const Navy = {
 
 
 export const Pink = {
+    50: '#FEE4F1',
     100: '#fff3f9',
     200: '#fee4f1',
     300: '#ffc6e3',
@@ -29,6 +31,7 @@ export const Pink = {
 
 
 export const Blue = {
+    50: '#DBE9FF',
     100: '#e9f1ff',
     200: '#b9d4ff',
     300: '#98b3ff',
@@ -60,7 +63,7 @@ export const SkyBlue = {
 
 
 export const Stone = {
-
+    50: '#FAFAFA',
     100: '#fbfbfb',
     200: '#eae8e5',
     300: '#cbc5be',

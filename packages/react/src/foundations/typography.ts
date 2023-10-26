@@ -22,20 +22,20 @@ export const FontSize = {
     h6: '1.25rem', // 20px
     bodyLg: '1.125rem', // 18px
     bodyMd: '1rem', // 16px
-    $bodySm: '0.875rem', // 14px
-    $bodyXs: '0.75rem', // 12px
+    bodySm: '0.875rem', // 14px
+    bodyXs: '0.75rem', // 12px
 }
 
 export const LineHeight = {
-    h1: 120,
-    h2: 120,
-    h3: 44,
-    h4: 32,
-    h5: 32,
-    h6: 28,
-    bodyLg: 24,
-    bodyMd: 24,
-    bodySm: 20,
-    bodyXs: 16,
+    h1: '80px',
+    h2: '64px',
+    h3: '48px',
+    h4: '48px',
+    h5: '30px',
+    h6: '32px',
+    bodyLg: '32px',
+    bodyMd: '24px',
+    bodySm: '20px',
+    bodyXs: '16px',
 
 }
