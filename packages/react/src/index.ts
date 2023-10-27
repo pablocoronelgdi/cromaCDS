@@ -1,2 +1,4 @@
 import { Text } from './components/text'
-export { Text }
+import { Button } from './components/button'
+import { ThemeWrapper } from './components/themeWrapper'
+export { Text,ThemeWrapper,Button }

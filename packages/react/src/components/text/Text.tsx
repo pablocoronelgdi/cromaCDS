@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { FontSize, FontWeight, LineHeight } from '../../foundations'
-import { macroTheme } from '../../theme/theme';
+import { macro } from '../../theme/theme';
 
 type Text$variant = 'bold' | 'semibold' | 'regular';
 type TextComponent = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'bodyLg' | 'bodyMd' | 'bodySm' | 'bodyXs'
@@ -12,7 +12,6 @@ type TextProps = {
   $variant?: Text$variant,
   children: ReactNode,
   $color?: Color,
-  $theme?: any,
 }
 
 const getFontVariation = ($component: TextComponent, $variant: Text$variant) => {
@@ -39,7 +38,7 @@ const Heading = styled.p<TextProps>`
 
 const Text: React.FC<TextProps> = ({ $component = 'bodyMd', children, $variant, $color }) => {
 
-  return <ThemeProvider theme={macroTheme}>
+  return <ThemeProvider theme={macro}>
     <Heading as={$component.includes('body') ? 'p' : $component} $component={$component} $variant={$variant} $color={$color}>
       {children}
     </Heading>
