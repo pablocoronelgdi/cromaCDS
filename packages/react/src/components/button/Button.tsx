@@ -2,23 +2,23 @@ import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { macro } from '../../theme/theme'
 
-type StyledButtonProps =  {
-    children: ReactNode | string
+type StyledButtonProps = {
+  children: ReactNode | string
 }
 
 const StyledButton = styled.button`
 background-color: transparent;
-color: ${props => props.theme.primary?.main ||  macro.primary.main};
+color: ${props => props.theme.color.primary?.main || macro.color.primary.main};
 padding:12px;
 border-radius:12px;
 font-size:1.5rem;
 border: solid 3px;
-border-color: ${props => props.theme.primary?.main || macro.primary.main };
+border-color: ${props => props.theme.color.primary?.main || macro.color.primary.main};
 font-weight:600,
 
 `
 
-const Button:React.FC<StyledButtonProps> = ({children}) => {
+const Button: React.FC<StyledButtonProps> = ({ children }) => {
   return (
     <StyledButton>{children}</StyledButton>
   )

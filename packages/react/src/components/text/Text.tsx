@@ -1,47 +1,33 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { FontSize, FontWeight, LineHeight } from '../../foundations'
 import { macro } from '../../theme/theme';
+import { TextComponent, TextVariant, TextProps } from './types';
 
-type Text$variant = 'bold' | 'semibold' | 'regular';
-type TextComponent = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'bodyLg' | 'bodyMd' | 'bodySm' | 'bodyXs'
-type Color = 'dark' | 'light' | 'red'
 
-type TextProps = {
-  $component?: TextComponent
-  $variant?: Text$variant,
-  children: ReactNode,
-  $color?: Color,
+const getFontVariation = ($component: TextComponent, $variant?: TextVariant): string => {
+  //Generamos un array con los Tags que no tienen una opcion regular.
+  const HeadingsWithouthRegular = ['h3', 'h4', 'h5', 'h6'];
+  if (HeadingsWithouthRegular.includes($component)) {
+    //Si la prop $variant es bold o semibold devolvemos eso. Caso contrario siempre devolvemos semibold.
+    return $variant === 'bold' || $variant === 'semibold' ? $variant : 'semibold';
+  }
+  //Si no se especifica una variante, devuelve semibold por default para StyledTexts y regular para body. 
+  return $variant || ($component.includes('body') || $component.includes('caption') ? 'regular' : 'semibold');
 }
 
-const getFontVariation = ($component: TextComponent, $variant: Text$variant) => {
-  const headingsWithouthRegular = ['h3', 'h4', 'h5', 'h6'];
-  if (headingsWithouthRegular.includes($component)) {
-    if ($variant === 'bold' || $variant === 'semibold') {
-      return FontWeight[$variant]
-    }
-    else {
-      return FontWeight['semibold']
-    }
-  }
-  else {
-    return FontWeight[$variant]
-  }
-}
-
-const Heading = styled.p<TextProps>`
-  font-size: ${(props) => ((props.$component ? FontSize[props.$component as keyof typeof FontSize] : FontSize['bodyMd']))};
-  font-weight: ${(props) => (props.$component && props.$variant ? getFontVariation(props.$component, props.$variant) : FontWeight['regular'])};
-  line-height: ${(props) => props.$component ? LineHeight[props.$component] : LineHeight['bodyMd']};
-  color: ${(props) => props.$color ? props.theme.text.light : props.theme.text.dark}
+const StyledText = styled.p<TextProps>`
+  font-family: ${({ $component, theme }) => (($component ? theme.typography[$component].fontFamily : macro.typography.bodyLg))};
+  font-weight: ${({ $component, $variant, theme }) => theme.typography.fontWeight[getFontVariation($component!, $variant)]};
+  font-size: ${({ $component, theme }) => (($component ? theme.typography[$component].fontSize : theme.typography.bodyLg))};
+  line-height: ${({ $component, theme }) => $component ? theme.typography[$component].lineHeight : theme.typography.bodyLg};
+  color: ${({ $color, theme }) => $color ? theme.color.text.light : theme.color.text.dark}
 `;
 
-const Text: React.FC<TextProps> = ({ $component = 'bodyMd', children, $variant, $color }) => {
-
+const Text: React.FC<TextProps> = ({ $component = 'bodyMd', children, $variant, $color }: TextProps) => {
   return <ThemeProvider theme={macro}>
-    <Heading as={$component.includes('body') ? 'p' : $component} $component={$component} $variant={$variant} $color={$color}>
+    <StyledText as={$component.includes('body') || $component.includes('caption') ? 'p' : $component} $component={$component} $variant={$variant} $color={$color}>
       {children}
-    </Heading>
+    </StyledText>
   </ThemeProvider>
 
 };

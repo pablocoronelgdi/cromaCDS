@@ -1,10 +1,8 @@
 export const FontFamily = {
     // Headings
-    titillium: "Titillium Web",
-
+    titillium: "'Titillium Web', sans-serif",
     // Body Text
-    openSans: "Open Sans",
-
+    openSans: "'Open Sans', sans-serif"
 }
 
 export const FontWeight = {
@@ -23,7 +21,7 @@ export const FontSize = {
     bodyLg: '1.125rem', // 18px
     bodyMd: '1rem', // 16px
     bodySm: '0.875rem', // 14px
-    bodyXs: '0.75rem', // 12px
+    caption: '0.75rem', // 12px
 }
 
 export const LineHeight = {
@@ -36,6 +34,18 @@ export const LineHeight = {
     bodyLg: '32px',
     bodyMd: '24px',
     bodySm: '20px',
-    bodyXs: '16px',
+    caption: '16px',
+}
 
+export const LetterSpacing = {
+    h1: '0.6%',
+    h2: '0.5%',
+    h3: '0.4%',
+    h4: '0.35%',
+    h5: '0.3%',
+    h6: '0.25%',
+    bodyLg: '0.2%',
+    bodyMd: '0.2%',
+    bodySm: '0.18%',
+    caption: '0.15%',
 }
