@@ -1,3 +1,4 @@
 import * as Color from './colors'
 import * as Typography from './typography'
-export{Color,Typography}
+import {Elevation} from './elevations'
+export{Color,Typography,Elevation}

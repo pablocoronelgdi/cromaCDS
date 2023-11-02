@@ -3,7 +3,6 @@ import styled, { ThemeProvider } from 'styled-components';
 import { macro } from '../../theme/theme';
 import { TextComponent, TextVariant, TextProps } from './types';
 
-
 const getFontVariation = ($component: TextComponent, $variant?: TextVariant): string => {
   //Generamos un array con los Tags que no tienen una opcion regular.
   const HeadingsWithouthRegular = ['h3', 'h4', 'h5', 'h6'];
@@ -15,17 +14,28 @@ const getFontVariation = ($component: TextComponent, $variant?: TextVariant): st
   return $variant || ($component.includes('body') || $component.includes('caption') ? 'regular' : 'semibold');
 }
 
+const IsValidComponent = ($component: TextComponent) => {
+  return ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'bodyLg', 'bodyMd', 'bodySm', 'caption'].includes($component)
+}
+
+const renderComponent = ($component: TextComponent) => {
+  if (IsValidComponent($component)) {
+    return $component.includes('body') || $component.includes('caption') ? 'p' : $component
+  }
+  return "p"
+}
+
 const StyledText = styled.p<TextProps>`
-  font-family: ${({ $component, theme }) => (($component ? theme.typography[$component].fontFamily : macro.typography.bodyLg))};
+  font-family: ${({ $component, theme }) => ((IsValidComponent($component!) ? theme.typography[$component!].fontFamily : macro.typography.bodyLg))};
   font-weight: ${({ $component, $variant, theme }) => theme.typography.fontWeight[getFontVariation($component!, $variant)]};
-  font-size: ${({ $component, theme }) => (($component ? theme.typography[$component].fontSize : theme.typography.bodyLg))};
-  line-height: ${({ $component, theme }) => $component ? theme.typography[$component].lineHeight : theme.typography.bodyLg};
+  font-size: ${({ $component, theme }) => ((IsValidComponent($component!) ? theme.typography[$component!].fontSize : theme.typography.bodyLg))};
+  line-height: ${({ $component, theme }) =>IsValidComponent($component!) ? theme.typography[$component!].lineHeight : theme.typography.bodyLg};
   color: ${({ $color, theme }) => $color ? theme.color.text.light : theme.color.text.dark}
 `;
 
-const Text: React.FC<TextProps> = ({ $component = 'bodyMd', children, $variant, $color }: TextProps) => {
+const Text: React.FC<TextProps> = ({ $component = "bodyLg", children, $variant, $color }: TextProps) => {
   return <ThemeProvider theme={macro}>
-    <StyledText as={$component.includes('body') || $component.includes('caption') ? 'p' : $component} $component={$component} $variant={$variant} $color={$color}>
+    <StyledText as={renderComponent($component)} $component={$component} $variant={$variant} $color={$color}>
       {children}
     </StyledText>
   </ThemeProvider>
