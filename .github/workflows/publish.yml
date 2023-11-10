@@ -18,8 +18,12 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install dependencies
-        run: npm ci
+      - name: yarn install
+        run: yarn install
+      - name: yarn build
+        run: yarn build
+      - name: yarn publish
+        run: yarn publish
 
       - name: Publish packages
         run: |
