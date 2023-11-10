@@ -1,8 +1,8 @@
 export const FontFamily = {
     // Headings
-    titillium: "'Titillium Web', sans-serif",
+    titillium: "'Titillium', sans-serif",
     // Body Text
-    openSans: "'Open Sans', sans-serif"
+    openSans: "'OpenSans', sans-serif"
 }
 
 export const FontWeight = {

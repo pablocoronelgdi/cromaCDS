@@ -11,8 +11,14 @@ function App() {
       ya que el tema "macro" tiene como colo principal el azul */}
       <ThemeWrapper $theme="macro">
         <Button $elevation="md">Boton Macro</Button>
+        <Text $variant="bold" $component="h1" >Whereas greiod</Text>
+        <Text $variant="semibold" $component="h1" >Whereas greiod</Text>
+        <Text $variant="regular" $component="h1" >Whereas greiod</Text>
+        <Text $variant="bold" $component="bodyLg" >Whereas greiod</Text>
+        <Text $variant="semibold" $component="bodyLg" >Whereas greiod</Text>
+        <Text $variant="regular" $component="bodyLg" >Whereas greiod</Text>
       </ThemeWrapper>
-      <Text $variant="bold" $component="h1" >Text h1 bold</Text>
+   
 
     </>
   );

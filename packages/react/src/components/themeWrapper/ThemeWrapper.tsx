@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
 import * as Theme from "../../theme/theme";
+import { GlobalStyle } from "../../foundations/globals";
 
 type ThemeWrapperProps = {
   $theme: string;
@@ -26,6 +27,7 @@ const ThemeWrapper: React.FC<ThemeWrapperProps> = ({
   return (
     <>
       <ThemeProvider theme={getMacroTheme($theme)}>
+        <GlobalStyle />
         <>{children}</>
       </ThemeProvider>
     </>

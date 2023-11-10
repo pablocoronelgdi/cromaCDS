@@ -17,5 +17,8 @@
   "scripts": {
     "build": "yarn lerna run build",
     "dev": "yarn lerna run dev"
+  },
+  "publishConfig": {
+    "@your-scope:registry": "https://npm.pkg.github.com/"
   }
 }
