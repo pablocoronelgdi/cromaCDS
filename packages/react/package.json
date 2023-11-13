@@ -1,5 +1,6 @@
 {
   "name": "@cromaui/react",
+  "author": "garaje_de_ideas",
   "version": "1.0.1",
   "main": "dist/index.js",
   "license": "MIT",
@@ -23,5 +24,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "22badf641c4c49a02af4ffa3cc69bc9f4aa57cdf"
 }

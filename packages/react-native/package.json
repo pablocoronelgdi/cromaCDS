@@ -1,5 +1,6 @@
 {
   "name": "@cromaui/react-native",
+  "author": "garaje_de_ideas",
   "version": "1.0.1",
   "main": "index.js",
   "scripts": {
