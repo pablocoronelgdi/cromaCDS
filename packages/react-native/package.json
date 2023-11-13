@@ -1,7 +1,7 @@
 {
   "name": "@cromaui/react-native",
   "author": "garaje_de_ideas",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "scripts": {
     "start": "expo start",

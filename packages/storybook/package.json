@@ -2,7 +2,7 @@
   "name": "@cromaui/storybook",
   "author": "garaje_de_ideas",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
