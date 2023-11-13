@@ -1,7 +1,7 @@
 {
   "name": "@cromaui/react",
   "author": "garaje_de_ideas",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/index.js",
   "license": "MIT",
   "devDependencies": {
