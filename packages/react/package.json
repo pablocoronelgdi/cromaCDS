@@ -20,5 +20,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "yarn build --watch"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

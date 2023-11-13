@@ -19,6 +19,6 @@
     "dev": "yarn lerna run dev"
   },
   "publishConfig": {
-    "@your-scope:registry": "https://npm.pkg.github.com/"
+    "access": "public"
   }
 }
