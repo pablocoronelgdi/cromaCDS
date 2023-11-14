@@ -10,14 +10,14 @@ type StyledButtonProps = {
 
 const StyledButton = styled.button<StyledButtonProps>`
 background-color: transparent;
-color: ${props => props.theme.color.primary?.main || macro.color.primary.main};
+color: ${macro.color.primary.main};
 padding:12px;
 border-radius:12px;
 font-size:1.5rem;
 border: solid 3px;
-border-color: ${props => props.theme.color.primary?.main || macro.color.primary.main};
+border-color: ${props => props.theme?.color?.primary?.main || macro.color.primary.main};
 font-weight:600;
-box-shadow: ${({ $elevation, theme }) => $elevation ? Elevation[$elevation] : theme.components.button.elevation}
+box-shadow: ${macro.components.button.elevation}
 `
 
 const Button: React.FC<StyledButtonProps> = ({ children, $elevation }) => {

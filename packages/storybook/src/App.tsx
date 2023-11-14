@@ -18,6 +18,7 @@ function App() {
         <Text $variant="semibold" $component="bodyLg" >Whereas greiod</Text>
         <Text $variant="regular" $component="bodyLg" >Whereas greiod</Text>
       </ThemeWrapper>
+      <Button>hola</Button>
    
 
     </>

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import { macro } from '../../theme/theme';
 import { TextComponent, TextVariant, TextProps } from './types';
 
@@ -28,17 +28,16 @@ const renderComponent = ($component: TextComponent) => {
 const StyledText = styled.p<TextProps>`
   font-family: ${({ $component, theme }) => ((IsValidComponent($component!) ? theme.typography[$component!].fontFamily : macro.typography.bodyLg))};
   font-weight: ${({ $component, $variant, theme }) => theme.typography.fontWeight[getFontVariation($component!, $variant)]};
-  font-size: ${({ $component, theme }) => ((IsValidComponent($component!) ? theme.typography[$component!].fontSize : theme.typography.bodyLg))};
-  line-height: ${({ $component, theme }) =>IsValidComponent($component!) ? theme.typography[$component!].lineHeight : theme.typography.bodyLg};
-  color: ${({ $color, theme }) => $color ? theme.color.text.light : theme.color.text.dark}
+  font-size: ${({ $component, theme }) => ((IsValidComponent($component!) ? theme.typography[$component!].fontSize : macro.typography.bodyLg))};
+  line-height: ${({ $component, theme }) => IsValidComponent($component!) ? theme.typography[$component!].lineHeight : macro.typography.bodyLg};
+  color: ${({ $color, theme }) => $color ? theme.color.text.light : macro.color.text.dark}
 `;
 
 const Text: React.FC<TextProps> = ({ $component = "bodyLg", children, $variant, $color }: TextProps) => {
-  return <ThemeProvider theme={macro}>
-    <StyledText as={renderComponent($component)} $component={$component} $variant={$variant} $color={$color}>
-      {children}
-    </StyledText>
-  </ThemeProvider>
+  return <StyledText as={renderComponent($component)} $component={$component} $variant={$variant} $color={$color}>
+    {children}
+  </StyledText>
+
 
 };
 
