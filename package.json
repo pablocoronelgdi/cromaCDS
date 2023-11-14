@@ -5,6 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "npmClient": "yarn",
+  "private": true,
   "useWorkspaces": true,
   "stream": true,
   "workspaces": [
