@@ -29,7 +29,7 @@ export const FontSize = {
     h5: '24px', // 24px
     h6: '20px', // 20px
     bodyLg: '18px', // 18px
-    bodyMd: '18px', // 16px
+    bodyMd: '16px', // 16px
     bodySm: '14px', // 14px
     caption: '12px', // 12px
 }

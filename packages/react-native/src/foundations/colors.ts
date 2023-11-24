@@ -1,5 +1,5 @@
 export const Navy = {
-    50: '#BECDDC',
+    50: '#DBEAF9',
     100: '#e6ebf0',
     200: '#becddc',
     300: '#95acc5',
@@ -46,6 +46,21 @@ export const Blue = {
 }
 
 
+export const Green = {
+    50:"#E5F5EC",
+    100: '#BFE5D0',
+    200: '#96D5B3',
+    300: '#68C596',
+    400: '#42B880',
+    500: '#00AC69',
+    600: '#0BA05E',
+    700: '#007A47',
+    800: '#005A1D',
+    900: '#073916',
+
+
+}
+
 export const SkyBlue = {
 
     100: '#f2fbff',
@@ -78,7 +93,7 @@ export const Stone = {
 }
 
 export const Neutral = {
-
+    0:"transparent",
     100: '#fff',
     200: '#f5f5f5',
     300: '#ededed',
