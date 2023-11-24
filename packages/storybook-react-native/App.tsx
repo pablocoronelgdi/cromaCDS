@@ -1,8 +1,6 @@
 import { StyleSheet, View } from 'react-native';
-import Button from './src/components/button/Button';
-import { ThemeProvider } from 'styled-components';
-import { agro } from './src/theme/theme';
-import IngresarDinero from './src/templates/IngresarDinero';
+import {Button} from '@cromaui/react-native/';
+ 
 
 
 export default function App() {

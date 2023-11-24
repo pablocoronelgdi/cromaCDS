@@ -1,4 +1,5 @@
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 import { Color } from '../foundations'
 import CromaText from '../components/text/Text'
 import Button from '../components/button/Button'
