@@ -1,53 +1,50 @@
-import { StyleSheet, View } from 'react-native';
-import {Button} from '@cromaui/react-native/';
- 
-
+import { StyleSheet, View, Text } from "react-native";
+import { Button, Icon, SwitchIcon } from "@cromaui/react-native/";
+import { ThemeProvider } from "styled-components";
+import { macro } from "./src/theme/theme";
+import { useState } from "react";
 
 export default function App() {
+  const [value, setvalue] = useState(true);
   return (
     <View style={styles.main}>
-       <View style={styles.container}>
+      <ThemeProvider theme={macro}>
+        <Icon name="circle" color="success" size="medium" />
+        <Button variant="outlined" color="success">
+          Hola
+        </Button>
+        <Button variant="outlined">Hola</Button>
+        <Button variant="outlined" color="secondary" iconName="circle">
+          Hola
+        </Button>
+        <Button
+          variant="filled"
+          color="primary"
+          iconName="circle"
+          iconPosition="right"
+        >
+          Hola
+        </Button>
+        <SwitchIcon value={value} onPress={()=>setvalue(!value)} />
+        <SwitchIcon disabled value={value} onPress={()=>setvalue(!value)} />
 
-        <Button size='small' variant='filled' >Botón</Button>
-        <Button size='medium' variant='filled'>Botón</Button>
-        <Button size='large' variant='filled'>Botón</Button>
-        <Button size='large' variant='filled' disabled>Botón</Button>
-
-      </View>
-      <View style={styles.container}>
-
-        <Button size='small' variant='outlined'>Botón</Button>
-        <Button size='medium' variant='outlined'>Botón</Button>
-        <Button size='large' variant='outlined'>Botón</Button>
-        <Button size='large' variant='outlined' disabled>Botón</Button>
-
-      </View>
-      <View style={styles.container}>
-
-        <Button size='small' variant='link'>Botón</Button>
-        <Button size='medium' variant='link'>Botón</Button>
-        <Button size='large' variant='link'>Botón</Button>
-        <Button size='large' variant='link' disabled>Botón</Button>
-
-      </View>
- 
-
+        <Text>{value ? "hola" : "chau"}</Text>
+        <Button>Hola</Button>
+      </ThemeProvider>
     </View>
-
-
   );
 }
 
 const styles = StyleSheet.create({
   main: {
-    flex: 1, justifyContent: "center", gap: 5
+    flex: 1,
+    gap: 5,
+    alignItems: "center",
+    justifyContent: "center",
   },
   container: {
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'center',
+    width: "50%",
+    backgroundColor: "#fff",
     gap: 3,
   },
-
 });

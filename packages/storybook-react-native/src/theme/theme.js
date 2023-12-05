@@ -13,16 +13,22 @@ const macro = {
       extraLight: Navy[50],
     },
     secondary: {
-      dark: Pink[300],
-      main: Pink[700],
-      light: Pink[100],
-      extraLight: Pink[500],
+      dark: Pink[700],
+      main: Pink[300],
+      light: Pink[200],
+      extraLight: Pink[50],
     },
     tertiary: {
       dark: Blue[700],
       main: Blue[500],
       light: Blue[200],
       extraLight: Blue[50],
+    },
+    success: {
+      dark: Green[700],
+      main: Green[500],
+      light: Green[200],
+      extraLight: Green[50],
     },
     complementary: {
       dark: Stone[300],
@@ -107,6 +113,9 @@ const macro = {
         filled: {
           backgroundColor: Color.Pink[800],
           color: Color.Neutral[100],
+          pressed:{
+            backgroundColor: Color.Pink[500]
+          }
         },
         outlined: {
           backgroundColor: Color.Neutral[0],
