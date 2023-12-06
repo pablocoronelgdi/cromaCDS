@@ -1,5 +1,5 @@
 import { StyleSheet, View, Text } from "react-native";
-import { Button, Icon, SwitchIcon } from "@cromaui/react-native/";
+import { Button, Icon, SwitchIcon, Checkbox} from "@cromaui/react-native/";
 import { ThemeProvider } from "styled-components";
 import { macro } from "./src/theme/theme";
 import { useState } from "react";
@@ -14,9 +14,6 @@ export default function App() {
           Hola
         </Button>
         <Button variant="outlined">Hola</Button>
-        <Button variant="outlined" color="secondary" iconName="circle">
-          Hola
-        </Button>
         <Button
           variant="filled"
           color="primary"
@@ -30,6 +27,9 @@ export default function App() {
 
         <Text>{value ? "hola" : "chau"}</Text>
         <Button>Hola</Button>
+        <Checkbox />
+
+    
       </ThemeProvider>
     </View>
   );

@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { Color, Typography } from "../../foundations";
+import { Color, Typography} from "@cromaui/foundations";
 import { getColorByProp } from "../../utils/colorUtils";
 
 /*
@@ -32,9 +32,9 @@ export const getBaseButtonStyles = () => {
 
 export const getBaseButtonTextStyles = () => {
   return css`
-    font-size: ${Typography.FontSize.bodyMd};
-    line-height: ${Typography.LineHeight.bodyMd};
-    font-weight: 600;
+    font-size: ${Typography.button.md.semibold.fontSize};
+    line-height: ${Typography.button.md.semibold.lineHeight};
+    font-weight: ${Typography.button.md.semibold.fontWeight};
     text-align: center;
   `;
 };
@@ -237,18 +237,18 @@ export const getButtonTextSize = (props) => {
   switch (props.size) {
     case "small":
       return css`
-        font-size: ${Typography.FontSize.bodySm};
-        line-height: ${Typography.LineHeight.bodySm};
+        font-size: ${Typography.button.sm.semibold.fontSize};
+        line-height: ${Typography.button.sm.semibold.lineHeight};
       `;
     case "large":
       return css`
-        font-size: ${Typography.FontSize.bodyMd};
-        line-height: ${Typography.LineHeight.bodyMd};
+        font-size: ${Typography.button.md.semibold.fontSize};
+        line-height: ${Typography.button.md.semibold.lineHeight};
       `;
     default:
       return css`
-        font-size: ${Typography.FontSize.bodyMd};
-        line-height: ${Typography.LineHeight.bodyMd};
+         font-size: ${Typography.button.md.semibold.fontSize};
+        line-height: ${Typography.button.md.semibold.lineHeight};
       `;
   }
 };

@@ -1,14 +1,8 @@
 export const Shapes = {
-  xs: { borderRadius: "4px" },
-  sm: { borderRadius: "8px" },
-  md: { borderRadius: "12px" },
-  lg: {
-    borderRadius: "16px",
-  },
-  full: {
-    borderRadius: "100px",
-  },
-  none: {
-    borderRadius: 0,
-  },
+  xs: "4px",
+  sm:"8px",
+  md: "12px" ,
+  lg: "16px",
+  full: "100px",
+  none: 0
 };

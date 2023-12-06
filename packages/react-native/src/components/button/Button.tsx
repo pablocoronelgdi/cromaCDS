@@ -11,8 +11,7 @@ import { Icon } from "../icon";
 
 const StyledPressable = styled.Pressable<ChildrenButtonPropTypes>`
   padding: 2px;
-  border-style: solid;
-  border-width: 2px;
+  border: solid 2px;
   border-color: transparent;
   border-radius: 12px;
 `;

@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "license": "MIT",
   "dependencies": {
+    "@cromaui/foundations": "^1.0.0",
     "@expo/vector-icons": "^13.0.0",
     "react": "^18.2.0",
     "react-native": "^0.72.7",
