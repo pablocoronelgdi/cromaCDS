@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "yarn build -w"
+    "dev": "yarn build -w",
+    "native": "yarn build"
+
   },
   "keywords": [],
   "author": "",

@@ -9,8 +9,7 @@
   "useWorkspaces": true,
   "stream": true,
   "workspaces": [
-    "packages/*",
-    "playground/*"
+    "packages/*"
   ],
   "devDependencies": {
     "lerna": "^7.4.1"

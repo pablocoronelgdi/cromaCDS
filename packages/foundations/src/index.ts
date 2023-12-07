@@ -3,4 +3,5 @@ import { Typography } from "./Typhography";
 import { Spacings } from "./spacings";
 import { Shapes } from "./shapes";
 import { Borders } from "./borders";
-export { Color,Typography,Spacings,Shapes,Borders };
+import { Elevations } from "./elevations";
+export { Color, Typography, Spacings, Shapes, Borders, Elevations };

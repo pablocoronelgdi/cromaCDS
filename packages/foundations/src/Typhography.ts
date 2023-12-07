@@ -37,10 +37,6 @@ export const Typography = {
 
         lineHeight: "80px",
 
-        paragraphIndent: 0,
-
-        paragraphSpacing: 0,
-
         textCase: "none",
       },
       bold: {
@@ -59,10 +55,6 @@ export const Typography = {
         letterSpacing: 0.3,
 
         lineHeight: "80px",
-
-        paragraphIndent: 0,
-
-        paragraphSpacing: 0,
 
         textCase: "none",
       },
@@ -84,10 +76,6 @@ export const Typography = {
 
         lineHeight: "64px",
 
-        paragraphIndent: 0,
-
-        paragraphSpacing: 0,
-
         textCase: "none",
       },
       semibold: {
@@ -107,10 +95,6 @@ export const Typography = {
 
         lineHeight: "64px",
 
-        paragraphIndent: 0,
-
-        paragraphSpacing: 0,
-
         textCase: "none",
 
         bold: {
@@ -129,10 +113,6 @@ export const Typography = {
           letterSpacing: 0.2,
 
           lineHeight: "64px",
-
-          paragraphIndent: 0,
-
-          paragraphSpacing: 0,
 
           textCase: "none",
         },
@@ -158,10 +138,6 @@ export const Typography = {
 
         lineHeight: "48px",
 
-        paragraphIndent: 0,
-
-        paragraphSpacing: 0,
-
         textCase: "none",
       },
       bold: {
@@ -180,10 +156,6 @@ export const Typography = {
         letterSpacing: 0.128,
 
         lineHeight: "48px",
-
-        paragraphIndent: 0,
-
-        paragraphSpacing: 0,
 
         textCase: "none",
       },
@@ -206,10 +178,6 @@ export const Typography = {
 
         lineHeight: "48px",
 
-        paragraphIndent: 0,
-
-        paragraphSpacing: 0,
-
         textCase: "none",
       },
       bold: {
@@ -228,10 +196,6 @@ export const Typography = {
         letterSpacing: 0.098,
 
         lineHeight: "48px",
-
-        paragraphIndent: 0,
-
-        paragraphSpacing: 0,
 
         textCase: "none",
       },
@@ -272,10 +236,6 @@ export const Typography = {
         letterSpacing: 0.072,
 
         lineHeight: "40px",
-
-        paragraphIndent: 0,
-
-        paragraphSpacing: 0,
 
         textCase: "none",
       },
@@ -378,10 +338,6 @@ export const Typography = {
 
         lineHeight: "32px",
 
-        paragraphIndent: 0,
-
-        paragraphSpacing: 0,
-
         textCase: "none",
       },
     },
@@ -401,10 +357,6 @@ export const Typography = {
         letterSpacing: 0.032,
 
         lineHeight: "24px",
-
-        paragraphIndent: 0,
-
-        paragraphSpacing: 0,
 
         textCase: "none",
       },
@@ -482,10 +434,6 @@ export const Typography = {
         letterSpacing: 0.025,
 
         lineHeight: "24px",
-
-        paragraphIndent: 0,
-
-        paragraphSpacing: 0,
 
         textCase: "none",
       },
@@ -609,10 +557,6 @@ export const Typography = {
 
         lineHeight: "24px",
 
-        paragraphIndent: 0,
-
-        paragraphSpacing: 0,
-
         textCase: "none",
       },
     },
@@ -656,10 +600,6 @@ export const Typography = {
         letterSpacing: 0.032,
 
         lineHeight: "24px",
-
-        paragraphIndent: 0,
-
-        paragraphSpacing: 0,
 
         textCase: "none",
       },

@@ -72,7 +72,7 @@ export const Error = {
   extraSoft: "#FFEAEC",
 };
 
-export const Warnning = {
+export const Warning = {
   dark: "#BF4900",
   main: "#DE7C0D",
   soft: "#F2CA82",
