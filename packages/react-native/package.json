@@ -24,8 +24,7 @@
   "type": "module",
   "scripts": {
     "build": "rollup -c",
-    "dev": "yarn build --watch",
-    "native" : "yarn build"
+    "dev": "yarn build --watch"
   },
   "publishConfig": {
     "access": "public"

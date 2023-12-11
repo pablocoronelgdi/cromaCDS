@@ -16,7 +16,8 @@
   },
   "scripts": {
     "build": "yarn lerna run build",
-    "dev": "yarn lerna run dev"
+    "dev": "yarn lerna run dev",
+    "start": "yarn lerna run start"
   },
   "publishConfig": {
     "access": "public"
