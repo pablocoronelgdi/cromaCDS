@@ -7,7 +7,7 @@ const path = require("path");
 // Find the project and workspace directories
 const projectRoot = __dirname;
 const config = getDefaultConfig(projectRoot);
-config.resolver.resolverMainFields.unshift("sbmodern");
+
 // This can be replaced with `find-yarn-workspace-root`
 const workspaceRoot = path.resolve(projectRoot, "../..");
 

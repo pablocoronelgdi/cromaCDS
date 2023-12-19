@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { Color, Typography} from "@cromaui/foundations";
+import { Color, Typography } from "@cromaui/foundations";
 import { getColorByProp } from "../../utils/colorUtils";
 
 /*
@@ -112,10 +112,10 @@ const filledButton = (props) => {
   if (props.isPressed) {
     return css`
       background-color: ${props.theme?.components?.button?.variant?.filled
-        .pressed.backgroundColor || Color.Navy[900]};
+        .pressed.backgroundColor || Color.Navy.dark};
       border: solid 2px
         ${props.theme?.components?.button?.variant?.filled?.pressed
-          ?.backgroundColor || Color.Navy[900]};
+          ?.backgroundColor || Color.Navy.dark};
     `;
   }
   // DEFAULT
@@ -158,7 +158,7 @@ const linkButton = (props) => {
       background-color: ${props.theme?.components?.button?.variant.link.disabled
         .backgroundColor || Color.Neutral[0]};
       border: solid 2px
-        ${props.theme?.components?.button?.variant.filled.disabled.color ||
+        ${props.theme?.components?.button?.variant.link.disabled.color ||
         Color.Neutral[0]};
     `;
   }
@@ -174,10 +174,10 @@ const linkButton = (props) => {
   }
   // DEFAULT
   return css`
-    background-color: ${props.theme?.components?.button?.variant.outlined
+    background-color: ${props.theme?.components?.button?.variant.link
       ?.backgroundColor || Color.Neutral[0]};
     border: solid 2px
-      ${props.theme?.components?.button?.variant?.outlined?.backgroundColor ||
+      ${props.theme?.components?.button?.variant?.link?.backgroundColor ||
       Color.Neutral[100]};
   `;
 };
@@ -188,21 +188,21 @@ const linkTextButton = (props) => {
   // DISABLED
   if (props.disabled) {
     return css`
-      color: ${props.theme?.components?.button?.variant?.filled?.color ||
+      color: ${props.theme?.components?.button?.variant?.link?.color ||
       Color.Neutral[400]};
     `;
   }
   // PRESSED
   if (props.isPressed) {
     return css`
-      color: ${props.theme?.components?.button?.variant?.filled?.color ||
-      Color.Navy[800]};
+      color: ${props.theme?.components?.button?.variant?.link?.color ||
+      Color.Navy.main};
     `;
   }
   // DEFAULT
   return css`
     color: ${props.theme?.components?.button?.variant?.link?.color ||
-    Color.Navy[800]};
+    Color.Navy.main};
   `;
 };
 
@@ -247,7 +247,7 @@ export const getButtonTextSize = (props) => {
       `;
     default:
       return css`
-         font-size: ${Typography.button.md.semibold.fontSize};
+        font-size: ${Typography.button.md.semibold.fontSize};
         line-height: ${Typography.button.md.semibold.lineHeight};
       `;
   }

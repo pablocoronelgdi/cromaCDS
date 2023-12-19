@@ -17,7 +17,8 @@
   "scripts": {
     "build": "yarn lerna run build",
     "dev": "yarn lerna run dev",
-    "start": "yarn lerna run start"
+    "start": "yarn lerna run start",
+    "storybook": "yarn lerna run storybook:android"
   },
   "publishConfig": {
     "access": "public"

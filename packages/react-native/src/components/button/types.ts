@@ -30,7 +30,6 @@ export type ButtonTextPropTypes = {
   variant?: ButtonVariantType;
   isPressed?: boolean;
   disabled?: boolean;
-  color?: string;
 };
 /*----------  Props del icono del boton  ----------*/
 
