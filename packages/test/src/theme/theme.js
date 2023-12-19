@@ -1,6 +1,5 @@
-import { Color, Typography } from "../foundations";
-import { Green } from "../foundations/colors";
-const { Navy, Blue, Pink, Neutral, Stone } = Color;
+import { Color, Typography } from "@cromaui/foundations";
+const { Green, Navy, Blue, Pink, Neutral, Stone } = Color;
 const { LineHeight, FontFamily, FontSize, FontWeight, LetterSpacing } =
   Typography;
 
@@ -113,9 +112,9 @@ const macro = {
         filled: {
           backgroundColor: Color.Pink[800],
           color: Color.Neutral[100],
-          pressed:{
-            backgroundColor: Color.Pink[500]
-          }
+          pressed: {
+            backgroundColor: Color.Pink[500],
+          },
         },
         outlined: {
           backgroundColor: Color.Neutral[0],

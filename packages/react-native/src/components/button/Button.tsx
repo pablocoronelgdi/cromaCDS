@@ -72,7 +72,6 @@ const Button = ({
           disabled={disabled}
           size={size}
           isPressed={isPressed}
-          color={color}
         >
           {children}
         </TextButton>
