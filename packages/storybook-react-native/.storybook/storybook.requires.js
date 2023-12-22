@@ -23,9 +23,9 @@ import '@storybook/addon-ondevice-actions/register';
 
 import { argsEnhancers } from '@storybook/addon-actions/dist/modern/preset/addArgs';
 
-import { decorators, parameters } from './preview';
+import { parameters } from './preview';
 
-if (decorators) {
+/* if (decorators) {
   if (__DEV__) {
     // stops the warning from showing on every HMR
     require('react-native').LogBox.ignoreLogs([
@@ -35,7 +35,7 @@ if (decorators) {
   // workaround for global decorators getting infinitely applied on HMR, see https://github.com/storybookjs/react-native/issues/185
   clearDecorators();
   decorators.forEach((decorator) => addDecorator(decorator));
-}
+} */
 
 if (parameters) {
   addParameters(parameters);

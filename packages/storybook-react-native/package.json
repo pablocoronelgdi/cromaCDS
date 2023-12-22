@@ -12,6 +12,7 @@
     "storybook-watch": "sb-rn-watcher"
   },
   "dependencies": {
+    "@storybook/addon-react-native-web": "^0.0.21",
     "expo": "~49.0.15",
     "expo-constants": "^14.4.2",
     "expo-status-bar": "~1.6.0",
