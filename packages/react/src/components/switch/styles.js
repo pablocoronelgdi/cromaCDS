@@ -1,12 +1,3 @@
-/*
- * INDICE:
- *
- * ESTILOS BASE
- * VARIANTES
- * FUNCIONES
- *
- */
-
 import { css } from "styled-components";
 import {
   Spacings,
@@ -15,7 +6,19 @@ import {
   Borders,
   Opacities,
 } from "@cromaui/foundations";
-import { borderColor } from "polished";
+
+
+/*
+ * INDICE:
+ *
+ * ESTILOS DE COMPONENTES
+ * 
+ * - Switch Container (div) 
+ * - Switch Area (label)
+ * - Switch Input (input hidden)
+ * - Switch Thumb (span)
+ */
+
 
 /* =============================================
 =            ESTILOS DE COMPONENTES            =
@@ -121,8 +124,8 @@ export const SwitchThumb = (props) => {
     & span {
       background-color: inherit;
       border-radius: inherit;
-      height: ${props.isPressed ? "28px" : "24px"};
-      width: ${props.isPressed ? "28px" : "24px"};
+      height: ${props.isPressed ? Spacings.space28 : Spacings.space24};
+      width: ${props.isPressed ? Spacings.space28 : Spacings.space24};
       transition: all 0.4s ease;
     }
     &::before {
@@ -137,39 +140,39 @@ export const SwitchThumb = (props) => {
 
   // DISABLED
   const disabled = css`
-    height: ${props.isChecked ? "24px" : "16px"};
-    width: ${props.isChecked ? "24px" : "16px"};
+    height: ${props.isChecked ? Spacings.space24 : Spacings.space16};
+    width: ${props.isChecked ? Spacings.space24 : Spacings.space16};
     background-color: ${props.isChecked
       ? Color.Neutral[50]
       : Color.Neutral[400]};
     transform: translateX(${props.isChecked ? "18px" : 0});
-    & span{
-      color: ${Color.Neutral[300]}
+    & span {
+      color: ${Color.Neutral[300]};
     }
   `;
 
   // CHECKED
   const checked = css`
-    height: ${props.isPressed ? "28px" : "24px"};
-    width: ${props.isPressed ? "28px" : "24px"};
+    height: ${props.isPressed ? Spacings.space28 : Spacings.space24};
+    width: ${props.isPressed ? Spacings.space28 : Spacings.space24};
     transform: translateX(18px);
     background-color: ${Color.Neutral[50]};
     &:hover {
       &::before {
-        background-color: ${Color.Navy.soft}33;
+        background-color: ${Color.Navy.soft}${Opacities.opacity20};
       }
     }
   `;
 
   // UNCHECKED
   const unchecked = css`
-    height: ${props.isPressed ? "28px" : "16px"};
-    width: ${props.isPressed ? "28px" : "16px"};
+    height: ${props.isPressed ? Spacings.space28 : Spacings.space16};
+    width: ${props.isPressed ? Spacings.space28 : Spacings.space16};
     transform: translateX(${props.isPressed ? "-4px" : "0px"});
     background-color: ${Color.Neutral[600]};
     &:hover {
       &::before {
-        background-color: ${Color.Neutral[600] + Opacities.opacity15};
+        background-color: ${Color.Neutral[600] + Opacities.opacity20};
       }
     }
   `;
