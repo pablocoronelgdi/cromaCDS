@@ -23,7 +23,6 @@ const ThemeWrapper: React.FC<ThemeWrapperProps> = ({
   children,
   $theme = "macro",
 }) => {
-  console.log(getMacroTheme($theme));
   return (
     <>
       <ThemeProvider theme={getMacroTheme($theme)}>

@@ -1,26 +1,24 @@
-import { ThemeWrapper, Button ,Text} from "@cromaui/react";
-import GlobalStyle from "./utils/globalStyles.js";
+import { ThemeWrapper, Button, Text, Icon, Switch } from "@cromaui/react";
+import { useState } from "react";
 
 function App() {
+  const [valu, setValue] = useState(false);
+  const handleSwitch = (isChecked: any) => {
+    console.log("cambiamos:", isChecked);
+  };
+
   return (
     <>
       <br />
       <br />
-
-      {/*   Este boton se renderizara con el color azul
-      ya que el tema "macro" tiene como colo principal el azul */}
       <ThemeWrapper $theme="macro">
-        <Button $elevation="md">Boton Macro</Button>
-        <Text $variant="bold" $component="h1" >Whereas greiod</Text>
-        <Text $variant="semibold" $component="h1" >Whereas greiod</Text>
-        <Text $variant="regular" $component="h1" >Whereas greiod</Text>
-        <Text $variant="bold" $component="bodyLg" >Whereas greiod</Text>
-        <Text $variant="semibold" $component="bodyLg" >Whereas greiod</Text>
-        <Text $variant="regular" $component="bodyLg" >Whereas greiod</Text>
+        <Icon size="large">check</Icon>
+        <Icon size="small">check</Icon>
+        <Switch value={valu} onChange={() => setValue(!valu)} />
+        <Switch onChange={handleSwitch} />
+        <Switch disabled />
+        <Switch disabled value={true} />
       </ThemeWrapper>
-     
-   
-
     </>
   );
 }
