@@ -109,7 +109,7 @@ export const SwitchInput = () => {
   `;
 };
 
-/* ----------  Switch Thumb  (span) ---------- */
+/* ----------  Switch Thumb  (div) ---------- */
 
 export const SwitchThumb = (props) => {
   // ESTILOS BASE

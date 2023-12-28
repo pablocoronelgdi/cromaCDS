@@ -3,8 +3,8 @@ import { useState } from "react";
 
 function App() {
   const [valu, setValue] = useState(false);
-  const handleSwitch = (isChecked: any) => {
-    console.log("cambiamos:", isChecked);
+  const handleSwitch = (value: any) => {
+    console.log("cambiamos:", value);
   };
 
   return (
@@ -12,12 +12,14 @@ function App() {
       <br />
       <br />
       <ThemeWrapper $theme="macro">
-        <Icon size="large">check</Icon>
-        <Icon size="small">check</Icon>
+        {/*Switch activo controlado y falso*/}
         <Switch value={valu} onChange={() => setValue(!valu)} />
-        <Switch onChange={handleSwitch} />
-        <Switch disabled />
-        <Switch disabled value={true} />
+        {/*Switch inactivo controlado y falso*/}
+        <Switch value={valu} disabled />
+        {/*Switch activo y true*/}
+        <Switch onChange={handleSwitch} defaultValue={true} />
+        {/*Switch inactivo y true*/}
+        <Switch disabled defaultValue={false} />
       </ThemeWrapper>
     </>
   );
