@@ -7,6 +7,7 @@ type SwitchProps = {
   onChange?: (isChecked: boolean) => void;
   disabled?: boolean;
   value?: boolean;
+  defaultValue?: boolean;
 };
 type SwitchInnerProps = {
   isChecked: boolean;
@@ -34,8 +35,13 @@ const SwitchThumb = styled.div<SwitchInnerProps>`
   ${() => SwitchStyles.SwitchThumb}
 `;
 
-const Switch: React.FC<SwitchProps> = ({ onChange, disabled, value }) => {
-  const [isChecked, setChecked] = useState(false);
+const Switch: React.FC<SwitchProps> = ({
+  onChange,
+  disabled,
+  value,
+  defaultValue,
+}) => {
+  const [isChecked, setChecked] = useState(defaultValue || false);
   const [isPressed, setIsPressed] = useState(false);
 
   /* Modifica el estado de "isChecked" y si existe una funcion pasada como parámetro
