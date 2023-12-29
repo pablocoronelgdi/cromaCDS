@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { macro } from '../../theme/theme'
-import { Elevation } from '../../foundations'
+import { Elevations } from '@cromaui/foundations'
 
 type StyledButtonProps = {
   children: ReactNode | string,
-  $elevation?: keyof typeof Elevation
+  $elevation?: keyof typeof Elevations
 }
 
 const StyledButton = styled.button<StyledButtonProps>`

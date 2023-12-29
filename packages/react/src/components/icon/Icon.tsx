@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { IconSizeType } from "./types";
-import { Shapes } from "@cromaui/foundations";
+import { Color, Shapes } from "@cromaui/foundations";
 
 export type IconColorType = string;
 export type IconPropTypes = {
@@ -30,9 +30,9 @@ const StyledIcon = styled.span<IconPropTypes>`
   height: ${(props) => getSize(props.size)};
   font-size: ${(props) => getSize(props.size)};
   font-family: "MaterialIcons";
-  color: black;
+  color: ${props => props.color || Color.Navy.main};
   user-select: none;
-  background-color: red;
+  background-color: transparent;
   border-radius: ${Shapes.full};
   justify-content: center;
   align-items: center;
@@ -40,9 +40,9 @@ const StyledIcon = styled.span<IconPropTypes>`
   vertical-align: middle;
 `;
 
-const Icon: React.FC<IconPropTypes> = ({ children, size }) => {
+const Icon: React.FC<IconPropTypes> = ({ children, size,color }) => {
   return (
-    <StyledIcon className="material-icons" size={size}>
+    <StyledIcon color={color} className="material-icons" size={size}>
       {children}
     </StyledIcon>
   );

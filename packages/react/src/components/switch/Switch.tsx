@@ -49,7 +49,9 @@ const Switch: React.FC<SwitchProps> = ({
    * De esta forma el componente puede ser controlado o no controlado. */
   const handleCheck = () => {
     if (!disabled) {
-      setChecked(!isChecked);
+      if (value === undefined) {
+        setChecked(!isChecked);
+      }
       if (onChange) {
         onChange(!isChecked);
       }
@@ -70,7 +72,7 @@ const Switch: React.FC<SwitchProps> = ({
   return (
     <SwitchContainer>
       <SwitchArea
-        isChecked={value || isChecked}
+        isChecked={value !== undefined ? value : isChecked}
         isPressed={isPressed}
         onMouseDown={(e) => handlePress(e)}
         onMouseUp={(e) => handlePress(e)}
@@ -79,12 +81,12 @@ const Switch: React.FC<SwitchProps> = ({
       >
         <SwitchInput
           type="checkbox"
-          checked={value || isChecked}
+          checked={value !== undefined ? value : isChecked}
           onChange={handleCheck}
         />
         <SwitchThumb
           disabled={disabled}
-          isChecked={value || isChecked}
+          isChecked={value !== undefined ? value : isChecked}
           isPressed={isPressed}
         >
           {value || isChecked ? <Icon size="small">check</Icon> : null}

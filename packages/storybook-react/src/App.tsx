@@ -1,4 +1,11 @@
-import { ThemeWrapper, Button, Text, Icon, Switch } from "@cromaui/react";
+import {
+  ThemeWrapper,
+  Button,
+  Text,
+  Icon,
+  Switch,
+  Checkbox,
+} from "@cromaui/react";
 import { useState } from "react";
 
 function App() {
@@ -14,12 +21,18 @@ function App() {
       <ThemeWrapper $theme="macro">
         {/*Switch activo controlado y falso*/}
         <Switch value={valu} onChange={() => setValue(!valu)} />
+
         {/*Switch inactivo controlado y falso*/}
-        <Switch value={valu} disabled />
+        <Switch value={valu} />
         {/*Switch activo y true*/}
         <Switch onChange={handleSwitch} defaultValue={true} />
         {/*Switch inactivo y true*/}
         <Switch disabled defaultValue={false} />
+        <Checkbox />
+        <Checkbox disabled />
+        <Checkbox defaultValue={true} disabled />
+        <Checkbox defaultValue={true} />
+        <Checkbox value={valu} onChange={() => setValue(!valu)} />
       </ThemeWrapper>
     </>
   );

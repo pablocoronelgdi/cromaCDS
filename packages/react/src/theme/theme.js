@@ -1,4 +1,4 @@
-import { Color, Elevation, Typography } from "../foundations";
+import { Color,Elevations,Typography } from "@cromaui/foundations";
 const { Navy, Blue, Pink, Neutral, Stone } = Color;
 const { LineHeight, FontFamily, FontSize, FontWeight, LetterSpacing } =
   Typography;
@@ -33,7 +33,7 @@ const macro = {
       dark: Neutral[1100],
     },
   },
-  typography: {
+/*   typography: {
     fontWeight: {
       regular: FontWeight.regular,
       bold: FontWeight.bold,
@@ -99,10 +99,10 @@ const macro = {
       lineHeight: LineHeight.caption,
       letterSpacing: LetterSpacing.caption,
     },
-  },
+  }, */
   components:{
     button:{
-      elevation: Elevation.md
+      elevation: Elevations.md
     }
   }
 };
@@ -137,7 +137,7 @@ const selecta = {
       dark: Neutral[1100],
     },
   },
-  typography: {
+/*   typography: {
     fontWeight: {
       regular: FontWeight.regular,
       bold: FontWeight.bold,
@@ -203,7 +203,7 @@ const selecta = {
       lineHeight: LineHeight.caption,
       letterSpacing: LetterSpacing.caption,
     },
-  },
+  }, */
 
 };
 
