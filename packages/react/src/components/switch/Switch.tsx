@@ -2,18 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Icon } from "../icon";
 import * as SwitchStyles from "./styles";
+import { SwitchInnerProps, SwitchProps } from "./types";
 
-type SwitchProps = {
-  onChange?: (isChecked: boolean) => void;
-  disabled?: boolean;
-  value?: boolean;
-  defaultValue?: boolean;
-};
-type SwitchInnerProps = {
-  isChecked: boolean;
-  isPressed: boolean;
-  disabled?: boolean;
-};
+
 
 // Un div que contiene a todo el componente.
 const SwitchContainer = styled.div`
@@ -49,7 +40,9 @@ const Switch: React.FC<SwitchProps> = ({
    * De esta forma el componente puede ser controlado o no controlado. */
   const handleCheck = () => {
     if (!disabled) {
-      setChecked(!isChecked);
+      if (value === undefined) {
+        setChecked(!isChecked);
+      }
       if (onChange) {
         onChange(!isChecked);
       }
@@ -70,7 +63,7 @@ const Switch: React.FC<SwitchProps> = ({
   return (
     <SwitchContainer>
       <SwitchArea
-        isChecked={value || isChecked}
+        isChecked={value !== undefined ? value : isChecked}
         isPressed={isPressed}
         onMouseDown={(e) => handlePress(e)}
         onMouseUp={(e) => handlePress(e)}
@@ -79,12 +72,12 @@ const Switch: React.FC<SwitchProps> = ({
       >
         <SwitchInput
           type="checkbox"
-          checked={value || isChecked}
+          checked={value !== undefined ? value : isChecked}
           onChange={handleCheck}
         />
         <SwitchThumb
           disabled={disabled}
-          isChecked={value || isChecked}
+          isChecked={value !== undefined ? value : isChecked}
           isPressed={isPressed}
         >
           {value || isChecked ? <Icon size="small">check</Icon> : null}
