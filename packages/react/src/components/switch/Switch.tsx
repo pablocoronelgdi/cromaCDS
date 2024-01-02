@@ -2,18 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Icon } from "../icon";
 import * as SwitchStyles from "./styles";
+import { SwitchInnerProps, SwitchProps } from "./types";
 
-type SwitchProps = {
-  onChange?: (isChecked: boolean) => void;
-  disabled?: boolean;
-  value?: boolean;
-  defaultValue?: boolean;
-};
-type SwitchInnerProps = {
-  isChecked: boolean;
-  isPressed: boolean;
-  disabled?: boolean;
-};
+
 
 // Un div que contiene a todo el componente.
 const SwitchContainer = styled.div`

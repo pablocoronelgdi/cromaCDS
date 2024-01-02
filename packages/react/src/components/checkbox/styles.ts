@@ -6,7 +6,7 @@ import {
   Spacings,
 } from "@cromaui/foundations";
 import { css } from "styled-components";
-
+import { CheckInnerProps } from "./types";
 /*
  * INDICE:
  *
@@ -19,7 +19,7 @@ import { css } from "styled-components";
 
 /* ----------  Check Container  (div) ---------- */
 
-export const checkContainer = (props) => {
+export const checkContainer = (props: CheckInnerProps) => {
   // ESTILOS BASE
   const base = css`
     position: relative;
@@ -66,7 +66,7 @@ export const checkContainer = (props) => {
 
 /* ----------  Check Area  (label) ---------- */
 
-export const checkArea = (props) => {
+export const checkArea = () => {
   //ESTILOS BASE
   const base = css`
     width: ${Spacings.space24};
@@ -80,12 +80,6 @@ export const checkArea = (props) => {
       outline-offset: -1px;
     }
   `;
-  //DISABLED
-  const disabled = css`
-    & span {
-      color: ${Color.Neutral[400]};
-    }
-  `;
   return css`
     ${base}
   `;
@@ -93,7 +87,7 @@ export const checkArea = (props) => {
 
 /* ----------  Check Input  (input checkbox) ---------- */
 
-export const checkInput = (props) => {
+export const checkInput = () => {
   return css`
     opacity: 0;
     width: 0;

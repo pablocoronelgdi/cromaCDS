@@ -3,18 +3,7 @@ import styled from "styled-components";
 import * as checkboxStyles from "./styles";
 import { Icon } from "../icon";
 import { Color } from "@cromaui/foundations";
-
-type CheckProps = {
-  onChange?: (isChecked: boolean) => void;
-  disabled?: boolean;
-  value?: boolean;
-  defaultValue?: boolean;
-};
-type CheckInnerProps = {
-  isChecked: boolean;
-  isPressed: boolean;
-  disabled?: boolean;
-};
+import { CheckInnerProps, CheckProps } from "./types";
 
 const CheckContainer = styled.div<CheckInnerProps>`
   ${() => checkboxStyles.checkContainer}
