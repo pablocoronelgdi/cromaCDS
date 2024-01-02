@@ -32,7 +32,6 @@ const StyledIcon = styled.span<IconPropTypes>`
   font-family: "MaterialIcons";
   color: black;
   user-select: none;
-  background-color: red;
   border-radius: ${Shapes.full};
   justify-content: center;
   align-items: center;
