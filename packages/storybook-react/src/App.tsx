@@ -1,8 +1,5 @@
 import {
   ThemeWrapper,
-  Button,
-  Text,
-  Icon,
   Switch,
   Checkbox,
 } from "@cromaui/react";
