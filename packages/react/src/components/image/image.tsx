@@ -65,7 +65,7 @@ const Image: React.FC<StyledImageProps> = ({
         </StyledImage>
     :
     <img 
-        src={image || 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fyt3.googleusercontent.com%2FZK5QIqI-noZ1AAq2FqdxNeftvK96U_tpzLYzfB2IM0VUBWCGiQOPcoZH_7sy_Yj0XK82Vj3m%3Ds900-c-k-c0x00ffffff-no-rj&tbnid=Pnf9TSlepPxPmM&vet=12ahUKEwi3h4zB0L-DAxXgh5UCHdDXAawQMygAegQIARBd..i&imgrefurl=https%3A%2F%2Fm.youtube.com%2Fc%2FGarajedeIdeas&docid=g6GScCEe1U3kgM&w=900&h=900&q=garaje%20de%20ideas&ved=2ahUKEwi3h4zB0L-DAxXgh5UCHdDXAawQMygAegQIARBd'} 
+        src={image || 'https://media.licdn.com/dms/image/C4E0BAQEdEHYXLJwxlQ/company-logo_200_200/0/1644521494829/garajedeideas_americas_logo?e=2147483647&v=beta&t=R4jQRSH2vlsHMNhBC_ZLwLgpmCvtHI9F4KBAOMhMNWE'} 
         height={height} 
         alt={alt}
         title={title}
