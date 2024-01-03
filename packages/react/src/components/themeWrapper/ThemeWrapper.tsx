@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
 import * as Theme from "../../theme/theme";
-import { GlobalStyle } from "../../foundations/globals";
+import { GlobalStyle } from "../../globals/globals";
 
 type ThemeWrapperProps = {
   $theme: string;

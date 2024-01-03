@@ -15,7 +15,7 @@ export const RoundedImageContainerStyled = styled.div<RoundedImageProps>`
   height: ${(props) => getSize(props.size)};
   width: ${(props) => getSize(props.size)};
   text-align: center;
-  overflow: auto;
+  overflow: hidden;
 
 & small {
     font-family: ${Typography.body.sm.semibold.fontFamily};
@@ -67,12 +67,17 @@ export const RoundedImageContainerStyled = styled.div<RoundedImageProps>`
     ${(props) =>
     props.disabled &&
     css`
-        opacity: 50%;
-        filter: grayscale(100%);
-        cursor: not-allowed;
-      `}
+      opacity: 50%;
+      filter: grayscale(100%);
+      cursor: not-allowed;
+    `}
   }
-  /*
-    icon
-  */
+
+  & > span {
+    ${(props) =>
+    props.disabled &&
+    css`
+      color: ${Color.Neutral[400]};
+    `}
+  }
 `;

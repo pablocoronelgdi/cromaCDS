@@ -67,18 +67,4 @@ html{
 *,*::before,*::after {
     box-sizing: inherit
 }
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  letter-spacing: normal;
-  text-transform: none;
-  display: flex;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
-}
 `;
-

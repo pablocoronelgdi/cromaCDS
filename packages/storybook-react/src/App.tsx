@@ -1,4 +1,8 @@
-import { ThemeWrapper, Switch, RoundedImage } from "@cromaui/react";
+import {
+  ThemeWrapper,
+  RoundedImage,
+  Switch,
+} from "@cromaui/react";
 import { useState } from "react";
 import { PHOTO_DATA_MOCK } from "./mocks/images";
 
@@ -15,18 +19,24 @@ function App() {
       <ThemeWrapper $theme="macro">
         {/*Switch activo controlado y falso*/}
         <Switch value={valu} onChange={() => setValue(!valu)} />
+
         {/*Switch inactivo controlado y falso*/}
-        <Switch value={valu} disabled />
+        <Switch value={valu} />
         {/*Switch activo y true*/}
         <Switch onChange={handleSwitch} defaultValue={true} />
         {/*Switch inactivo y true*/}
         <Switch disabled defaultValue={false} />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', placeItems: 'center', width: '100%', gap: 10, flexWrap: 'wrap' }}>
           <RoundedImage size="extra-small" monogram="áä" />
-          <RoundedImage size="small" monogram="Abcs" />
+          <RoundedImage size="small" monogram="AbAcs" />
           <RoundedImage size="medium" monogram="LR" />
-          <RoundedImage size="large" monogram="LR" />
-          <RoundedImage size="extra-large" monogram="LR" />
+          <RoundedImage size="large" monogram="jS" />
+          <RoundedImage size="extra-large" monogram="SG" />
+          <RoundedImage size="extra-small" iconName="person" />
+          <RoundedImage size="small" iconName="person" />
+          <RoundedImage size="medium" iconName="person" />
+          <RoundedImage size="large" iconName="person" />
+          <RoundedImage size="extra-large" iconName="psychology" />
           <RoundedImage size="extra-small" photo={PHOTO_DATA_MOCK} />
           <RoundedImage size="small" photo={PHOTO_DATA_MOCK} />
           <RoundedImage size="medium" photo={PHOTO_DATA_MOCK} />
@@ -42,7 +52,11 @@ function App() {
           <RoundedImage size="medium" photo={PHOTO_DATA_MOCK} disabled />
           <RoundedImage size="large" photo={PHOTO_DATA_MOCK} disabled />
           <RoundedImage size="extra-large" photo={PHOTO_DATA_MOCK} disabled />
-          {/* <RoundedImage icon={{ size: "small", name: "Check" }} /> */}
+          <RoundedImage size="extra-small" iconName="person" disabled />
+          <RoundedImage size="small" iconName="person" disabled />
+          <RoundedImage size="medium" iconName="person" disabled />
+          <RoundedImage size="large" iconName="person" disabled />
+          <RoundedImage size="extra-large" iconName="psychology" disabled />
         </div>
       </ThemeWrapper>
     </>
