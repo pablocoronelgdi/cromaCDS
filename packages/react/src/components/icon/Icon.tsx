@@ -19,7 +19,6 @@ const getSize = (size?: IconSizeType) => {
 };
 
 const StyledIcon = styled.span<IconPropTypes>`
-  display: flex;
   white-space: nowrap;
   word-wrap: normal;
   margin: 0;
@@ -37,8 +36,6 @@ const StyledIcon = styled.span<IconPropTypes>`
   text-transform: none;
   user-select: none;
   border-radius: ${Shapes.full};
-  justify-content: center;
-  align-items: center;
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 `;
