@@ -6,19 +6,18 @@ import {
   Borders,
   Opacities,
 } from "@cromaui/foundations";
-
+import { SwitchInnerProps } from "./types";
 
 /*
  * INDICE:
  *
  * ESTILOS DE COMPONENTES
- * 
- * - Switch Container (div) 
+ *
+ * - Switch Container (div)
  * - Switch Area (label)
  * - Switch Input (input hidden)
  * - Switch Thumb (span)
  */
-
 
 /* =============================================
 =            ESTILOS DE COMPONENTES            =
@@ -26,7 +25,7 @@ import {
 
 /* ----------  Switch Container  (div) ---------- */
 
-export const SwitchContainer = (props) => {
+export const SwitchContainer = () => {
   // ESTILOS BASE
   const base = css`
     border-radius: ${Shapes.full};
@@ -46,7 +45,7 @@ export const SwitchContainer = (props) => {
 
 /* ----------  Switch Area  (label) ---------- */
 
-export const SwitchArea = (props) => {
+export const SwitchArea = (props: SwitchInnerProps) => {
   // ESTILOS BASE
   const base = css`
     cursor: pointer;
@@ -111,7 +110,7 @@ export const SwitchInput = () => {
 
 /* ----------  Switch Thumb  (div) ---------- */
 
-export const SwitchThumb = (props) => {
+export const SwitchThumb = (props: SwitchInnerProps) => {
   // ESTILOS BASE
   const base = css`
     display: flex;
