@@ -121,6 +121,9 @@ export const SwitchThumb = (props: SwitchInnerProps) => {
     transition: all 0.4s ease;
     // Icono
     & span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: inherit;
       border-radius: inherit;
       height: ${props.isPressed ? Spacings.space28 : Spacings.space24};
