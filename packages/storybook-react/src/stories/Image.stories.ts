@@ -21,6 +21,8 @@ export const ImageDefault: Story =
 {
     args: {
         image: 'https://media.licdn.com/dms/image/C4E0BAQEdEHYXLJwxlQ/company-logo_200_200/0/1644521494829/garajedeideas_americas_logo?e=2147483647&v=beta&t=R4jQRSH2vlsHMNhBC_ZLwLgpmCvtHI9F4KBAOMhMNWE',
+        width: 100,
+        height: 100,
         backgroundImage: false,
         alt: "Banca Internet"
     },
@@ -59,5 +61,15 @@ export const ImageHover: Story =
         height: 150,
         alt: "Banca Internet",
         hover: true
+    },
+}
+
+export const ImageFullWidth: Story =
+{
+    args: {
+        image: 'https://media.licdn.com/dms/image/C4E0BAQEdEHYXLJwxlQ/company-logo_200_200/0/1644521494829/garajedeideas_americas_logo?e=2147483647&v=beta&t=R4jQRSH2vlsHMNhBC_ZLwLgpmCvtHI9F4KBAOMhMNWE',
+        backgroundImage: false,
+        fullWidth: true,
+        alt: "Banca Internet",
     },
 }

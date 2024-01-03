@@ -12,11 +12,12 @@ type StyledImageProps = {
     title: string, /* usability tool defines a title to read or display */
     circle?: boolean, /* activate avatar or circular mode */
     hover?: boolean, /* activate hover mode for images */
+    fullWidth?: boolean,
 }
 
 const StyledImage = styled.div<StyledImageProps>`
-    width: ${(props) => props.width}px;
-    height: ${(props) => props.height}px;
+    width: ${(props) => props.fullWidth ? '100%' : (props) => props.width}px;
+    height: ${(props) => props.height ? props.height : null}px;
     background-image: url(${(props) => props.image ? props.image : ''});
     background-position: center;
     background-size: cover;
@@ -40,14 +41,15 @@ const StyledImage = styled.div<StyledImageProps>`
 `
 
 const Image: React.FC<StyledImageProps> = ({
-    width = 100,
-    height = 100,
+    width,
+    height,
     image = "https://media.licdn.com/dms/image/C4E0BAQEdEHYXLJwxlQ/company-logo_200_200/0/1644521494829/garajedeideas_americas_logo?e=2147483647&v=beta&t=R4jQRSH2vlsHMNhBC_ZLwLgpmCvtHI9F4KBAOMhMNWE",
     backgroundImage = false,
     circle = false,
     alt = "",
     title = "",
     hover = false,
+    fullWidth = false,
     children
 }) => {
     
@@ -62,6 +64,7 @@ const Image: React.FC<StyledImageProps> = ({
             hover={hover}
             alt={alt}
             title={title}
+            fullWidth={fullWidth}
         >
             {children}
         </StyledImage>
@@ -71,7 +74,7 @@ const Image: React.FC<StyledImageProps> = ({
         height={height} 
         alt={alt}
         title={title}
-        width={width} 
+        width={fullWidth ? '100%' : width} 
     />
   )
 };
