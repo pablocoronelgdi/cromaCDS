@@ -72,12 +72,12 @@ export const checkArea = () => {
     width: ${Spacings.space24};
     height: ${Spacings.space24};
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     border-radius: ${Shapes.xs};
     &:focus-within {
       outline: ${Borders.br2}${Color.Blue.main};
-      outline-offset: -1px;
+      outline-offset: 0px;
     }
   `;
   return css`

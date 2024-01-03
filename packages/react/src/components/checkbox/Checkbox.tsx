@@ -64,9 +64,10 @@ const Checkbox: React.FC<CheckProps> = ({
           checked={value !== undefined ? value : isChecked}
           onChange={handleCheck}
         />
-        <Icon color={disabled ? Color.Neutral[400] : Color.Navy.main}>
-          {value || isChecked ? "check_box" : "check_box_outline_blank"}
-        </Icon>
+        <Icon
+          color={disabled ? Color.Neutral[400] : Color.Navy.main}
+          name={value || isChecked ? "check_box" : "check_box_outline_blank"}
+        />
       </CheckArea>
     </CheckContainer>
   );
