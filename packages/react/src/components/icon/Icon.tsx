@@ -5,13 +5,13 @@ import { Color, Shapes } from "@cromaui/foundations";
 
 const getSize = (size?: IconSizeType) => {
   switch (size) {
-    case "sm":
+    case "small":
       return "16px";
-    case "md":
+    case "medium":
       return "20px";
-    case "lg":
+    case "large":
       return "24px";
-    case "xl":
+    case "extra-large":
       return "32px";
     default:
       return "24px";
