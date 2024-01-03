@@ -1,49 +1,52 @@
 import React from "react";
 import styled from "styled-components";
-import { IconSizeType } from "./types";
+import { IconPropTypes, IconSizeType } from "./types";
 import { Color, Shapes } from "@cromaui/foundations";
-
-export type IconColorType = string;
-export type IconPropTypes = {
-  size?: IconSizeType;
-  color?: IconColorType;
-  style?: object;
-  theme?: object;
-  children?: any;
-};
 
 const getSize = (size?: IconSizeType) => {
   switch (size) {
     case "small":
-      return "24px";
+      return "16px";
     case "medium":
-      return "32px";
+      return "20px";
     case "large":
-      return "64px";
+      return "24px";
+    case "extra-large":
+      return "32px";
     default:
       return "24px";
   }
 };
 
 const StyledIcon = styled.span<IconPropTypes>`
+  display: flex;
+  white-space: nowrap;
+  word-wrap: normal;
+  margin: 0;
+  padding: 0;
+  line-height: ${(props) => getSize(props.size)};
   width: ${(props) => getSize(props.size)};
   height: ${(props) => getSize(props.size)};
-  font-size: ${(props) => getSize(props.size)};
-  font-family: "MaterialIcons";
-  color: ${props => props.color || Color.Navy.main};
-  user-select: none;
+  color: ${(props) => props.color || Color.Navy.main};
   background-color: transparent;
+  font-size: ${(props) => getSize(props.size)};
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  user-select: none;
   border-radius: ${Shapes.full};
   justify-content: center;
   align-items: center;
-  text-align: center;
-  vertical-align: middle;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
 `;
 
-const Icon: React.FC<IconPropTypes> = ({ children, size,color }) => {
+const Icon: React.FC<IconPropTypes> = ({ name = "info", size, color }) => {
   return (
-    <StyledIcon color={color} className="material-icons" size={size}>
-      {children}
+    <StyledIcon color={color} size={size}>
+      {name}
     </StyledIcon>
   );
 };

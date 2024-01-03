@@ -80,7 +80,7 @@ const Switch: React.FC<SwitchProps> = ({
           isChecked={value !== undefined ? value : isChecked}
           isPressed={isPressed}
         >
-          {value || isChecked ? <Icon size="small">check</Icon> : null}
+          {value || isChecked ? <Icon size="medium" name="check" /> : null}
         </SwitchThumb>
       </SwitchArea>
     </SwitchContainer>

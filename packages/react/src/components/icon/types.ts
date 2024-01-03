@@ -1,11 +1,9 @@
-import { MaterialIcons } from "@expo/vector-icons";
 
-export type IconSizeType = "small" | "medium" | "large";
-export type IconColorType = string;
+export type IconSizeType = "small" | "medium" | "large" | "extra-large";
 export type IconPropTypes = {
-  name: keyof typeof MaterialIcons.glyphMap;
+  name?: string;
   size?: IconSizeType;
-  color?: IconColorType;
+  color?: string;
   style?: object;
   theme?: object;
 };
