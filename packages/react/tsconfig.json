@@ -16,6 +16,6 @@
     "skipLibCheck": true,
     "allowJs": true,
   },
-  "include": ["src", "../storybook/utils"],
+  "include": ["src", "../storybook/utils", "../storybook-react/src/mocks"],
   "exclude": ["node_modules", "dist"]
 }
