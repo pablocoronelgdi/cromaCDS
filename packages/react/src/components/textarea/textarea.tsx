@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Elevations, Color, Spacings, Typography, Shapes, Borders } from '@cromaui/foundations'
+import { Icon } from '../icon';
 
 type StyledTextAreaProps = {
     text?: string,
     title?: string,
-    label?: string,
-    error?: boolean,
+    label: string,
+    error: boolean,
     disabled?: boolean,
+    characterCounter?: boolean,
     errorMessage?: string,
-    maxLength?: number
+    maxLength?: number,
 }
 
 const StyledContent = styled.div<StyledTextAreaProps>`
@@ -33,11 +35,32 @@ const StyledContent = styled.div<StyledTextAreaProps>`
         font-weight: ${Typography.caption.regular.fontWeight};
         line-height: ${Typography.caption.regular.lineHeight};
 
-        & i {
+        & span {
             margin-right: ${Spacings.space8}
+        }
+
+        & p {
+            margin: 0;
+            max-width: 300px;
+            width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
         }
     }
 `
+
+const StyledLabel = styled.div<StyledTextAreaProps>`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+`
+
+const StyledLabelIcon = styled.div<StyledTextAreaProps>`
+    width: 100%;
+    display: flex;
+`
+
 const StyledTextArea = styled.textarea<StyledTextAreaProps>`
     width: 100%;
     min-height: 120px;
@@ -80,7 +103,8 @@ const TextArea: React.FC<StyledTextAreaProps> = ({
     label = "Texto de ayuda.",
     error = false,
     disabled = false,
-    maxLength = 100
+    maxLength = 100,
+    characterCounter = false
 }) => {
 
     const [textValue, setTextValue] = useState<string>(text);
@@ -96,7 +120,7 @@ const TextArea: React.FC<StyledTextAreaProps> = ({
     };
     
   return (
-    <StyledContent error={error} disabled={disabled}>
+    <StyledContent error={error} disabled={disabled} label={label}>
         {title && <p>{title}</p>}
         <StyledTextArea 
             maxLength={100}
@@ -105,16 +129,22 @@ const TextArea: React.FC<StyledTextAreaProps> = ({
             placeholder={text}
             disabled={disabled}
             error={error}
+            label={label}
         >
             {text}
         </StyledTextArea>
         {label && 
             <label>
-                <div>
-                    {error && <i>!</i>}
-                    <span>{errorMessage}</span>
-                </div>
-                {`${maxLength - caracters.length}/${maxLength}`}
+                <StyledLabel error={error} label={label}>
+                    <StyledLabelIcon error={error} label={label}>
+                        {error && <Icon name="info_outlined" color={Color.Error.main} size="small" />}
+                        <p>{errorMessage}</p>
+                    </StyledLabelIcon>
+                    {characterCounter && <div>
+                        <p>{`${maxLength - caracters.length}/${maxLength}`}</p>
+                    </div>}
+                </StyledLabel>
+                
             </label>
         }
     </StyledContent>
