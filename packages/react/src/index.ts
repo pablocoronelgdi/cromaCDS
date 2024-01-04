@@ -6,7 +6,6 @@ import { RoundedImage } from './components/roundedImage'
 import { Switch } from "./components/switch";
 import { ThemeWrapper } from "./components/themeWrapper";
 import { TextArea } from "./components/textarea";
-import { Checkbox } from "./components/checkbox";
 
 export {
   Button,

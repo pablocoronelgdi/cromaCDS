@@ -3,7 +3,7 @@ import { RoundedImageContainerStyled } from "./styles";
 import { RoundedImageProps, RoundedImageSizeType } from "./types";
 import { Icon } from "../icon";
 import { Image } from "../image";
-import { removeAccents } from "../../utils/stringsUtils";
+import { monogramRegex } from "../../utils/stringsUtils";
 import { IconSizeType } from "../icon/types";
 
 export const getSize = (size?: RoundedImageSizeType) => {
@@ -46,12 +46,12 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
         return "medium";
     }
   })();
-  // @TODO: Esperar confirmación si solo se permiten letras, actualmente permite números en formato string.
+
   useEffect(() => {
     if (monogram && monogram.length <= maxLenghtMonogram) {
-      setMonogramCustom(removeAccents(monogram.toUpperCase()));
+      setMonogramCustom(monogramRegex(monogram));
     } else if (monogram && monogram.length >= maxLenghtMonogram) {
-      setMonogramCustom(removeAccents(monogram?.charAt(0).concat(monogram?.charAt(1)).toUpperCase()));
+      setMonogramCustom(monogramRegex(monogram?.charAt(0).concat(monogram?.charAt(1))));
     }
   }, [monogram]);
 
@@ -75,7 +75,7 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
           image={photo?.image}
         />
       }
-      {!monogram && !photo &&
+      {(!monogramCustom && !photo || iconName) &&
         <Icon size={iconSize} name={iconName || "person"} />
       }
     </RoundedImageContainerStyled>

@@ -29,9 +29,9 @@ function App() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', placeItems: 'center', width: '100%', gap: 10, flexWrap: 'wrap' }}>
           <RoundedImage size="extra-small" monogram="áä" />
           <RoundedImage size="small" monogram="AbAcs" />
-          <RoundedImage size="medium" monogram="LR" />
-          <RoundedImage size="large" monogram="jS" />
-          <RoundedImage size="extra-large" monogram="SG" />
+          <RoundedImage size="medium" monogram="22" />
+          <RoundedImage size="large" monogram="j2" />
+          <RoundedImage size="extra-large" monogram="2G" />
           <RoundedImage size="extra-small" iconName="person" />
           <RoundedImage size="small" iconName="person" />
           <RoundedImage size="medium" iconName="person" />
