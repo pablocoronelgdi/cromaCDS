@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TextArea } from '@cromaui/react';
 
 const meta = {
-  title: 'Atoms/TextArea',
+  title: 'Inputs/TextArea',
   component: TextArea,
   argTypes: {
     title: { control: { type: 'text' } },
@@ -12,6 +12,7 @@ const meta = {
     error: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
     maxLength: { control: { type: 'number' } },
+    characterCounter: { control: { type: 'boolean' } },
   },
 } satisfies Meta<typeof TextArea>;
 
@@ -39,7 +40,8 @@ export const TextAreaTitle: Story =
         errorMessage: "Texto de referencia",
         error: false,
         disabled: false,
-        maxLength: 100
+        maxLength: 100,
+        characterCounter: true
     },
 }
 
@@ -49,10 +51,9 @@ export const TextAreaError: Story =
         title: 'Dejar comentario',
         label: 'Texto de ejemplo',
         text: "Quiero comunicar que...",
-        errorMessage: "Se supero el limite de caracteres",
+        errorMessage: "Se supero el limite de caracteres, que se requiere en este tipo de formularios",
         error: true,
         disabled: false,
-        maxLength: 100
     },
 }
 
@@ -65,6 +66,7 @@ export const TextAreaDisabled: Story =
         errorMessage: "Se supero el limite de caracteres",
         error: false,
         disabled: true,
-        maxLength: 100
+        maxLength: 100,
+        characterCounter: true
     },
 }
