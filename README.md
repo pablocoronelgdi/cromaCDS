@@ -50,6 +50,7 @@ $ yarn storybook
 - Storybook
 - Yarn
 - Lerna
+-
 
 ## Readme en desarrollo
 
