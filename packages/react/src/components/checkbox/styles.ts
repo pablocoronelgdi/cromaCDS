@@ -1,97 +1,66 @@
 import {
-  Borders,
-  Color,
-  Opacities,
-  Shapes,
-  Spacings,
-} from "@cromaui/foundations";
-import { css } from "styled-components";
-import { CheckInnerProps } from "./types";
-/*
- * INDICE:
- *
- * ESTILOS DE COMPONENTES
- *
- * - Check Container (div)
- * - Check Area (label)
- * - Check Input (input checkbox)
- */
+  borders,
+  color,
+  opacities,
+  shapes,
+  spacings
+} from '@cromaui/foundations'
+import { styled, css } from 'styled-components'
+import type { CheckInnerProps } from './types'
+
+/* =============================================
+=            ESTILOS DEL COMPONENTE CHECKBOX     =
+============================================= */
 
 /* ----------  Check Container  (div) ---------- */
 
-export const checkContainer = (props: CheckInnerProps) => {
-  // ESTILOS BASE
-  const base = css`
-    position: relative;
-    display: inline-flex;
-    width: ${Spacings.space40};
-    height: ${Spacings.space40};
-    padding: ${Spacings.space8};
-    border-radius: ${Shapes.full};
-    &:hover {
-      background-color: ${Color.Navy.soft}${Opacities.opacity20};
-    }
-  `;
+export const CheckContainer = styled.div<CheckInnerProps>`
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: ${spacings.space40};
+  height: ${spacings.space40};
+  padding: ${spacings.space8};
+  border-radius: ${shapes.full};
 
-  // DISABLED
-  const disabled = css`
-    &:hover {
-      background-color: transparent;
-    }
-  `;
-
-  // PRESSED
-  const pressed = css`
-    &:hover {
-      background-color: ${Color.Neutral[600]}${Opacities.opacity20};
-    }
-  `;
-
-  if (props.disabled) {
-    return css`
-      ${base}
-      ${disabled}
-    `;
+  /* ----------  Check Aura ---------- */
+  &:hover {
+    ${(props) =>
+      props.disabled &&
+      css`
+        background-color: ${color.navy.soft}${opacities.opacity20};
+      `}
+    ${(props) =>
+      props.isPressed &&
+      css`
+        background-color: ${color.neutral[600]}${opacities.opacity20};
+      `}
   }
-  if (props.isPressed) {
-    return css`
-      ${base}
-      ${pressed}
-    `;
-  }
-  return css`
-    ${base}
-  `;
-};
 
-/* ----------  Check Area  (label) ---------- */
-
-export const checkArea = () => {
-  //ESTILOS BASE
-  const base = css`
-    width: ${Spacings.space24};
-    height: ${Spacings.space24};
+  /* ----------  Check Area  (label) ---------- */
+  & label {
+    width: ${spacings.space24};
+    height: ${spacings.space24};
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    border-radius: ${Shapes.xs};
-    &:focus-within {
-      outline: ${Borders.br2}${Color.Blue.main};
-      outline-offset: 0px;
+    border-radius: ${shapes.xs};
+    ${(props) =>
+      props.isFocused &&
+      css`
+        outline: ${borders.br2}${color.blue.main};
+        outline-offset: 0px;
+      `}
+
+    /* ----------  Check Input  (input checkbox) ---------- */
+
+    & input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
     }
-  `;
-  return css`
-    ${base}
-  `;
-};
-
-/* ----------  Check Input  (input checkbox) ---------- */
-
-export const checkInput = () => {
-  return css`
-    opacity: 0;
-    width: 0;
-    height: 0;
-    position: absolute;
-  `;
-};
+  }
+`

@@ -1,72 +1,54 @@
-import React, { useEffect, useState } from "react";
-import { RoundedImageContainerStyled } from "./styles";
-import { RoundedImageProps, RoundedImageSizeType } from "./types";
-import { Icon } from "../icon";
-import { Image } from "../image";
-import { monogramRegex } from "../../utils/stringsUtils";
-import { IconSizeType } from "../icon/types";
+import React, { useEffect, useState } from 'react'
+import { RoundedImageContainerStyled } from './styles'
+import { Icon } from '../icon'
+import { Image } from '../image'
+import { monogramRegex } from '../../utils/stringsUtils'
+import type { IconSizeType } from '../icon/types'
+import type { RoundedImagePropsTypes } from './types'
 
-export const getSize = (size?: RoundedImageSizeType) => {
-  switch (size) {
-    case "extra-small":
-      return "32px";
-    case "small":
-      return "40px";
-    case "medium":
-      return "48px";
-    case "large":
-      return "72px";
-    case "extra-large":
-      return "80px";
-    default:
-      return "32px";
-  }
-};
-
-const RoundedImage: React.FC<RoundedImageProps> = ({
+/** Descripcion del componente RoundedImage WIP */
+const RoundedImage: React.FC<RoundedImagePropsTypes> = ({
   size = 'small',
   disabled = false,
   monogram,
   photo,
   iconName
 }) => {
-  const [monogramCustom, setMonogramCustom] = useState<RoundedImageProps['monogram']>('AR');
-  const maxLenghtMonogram = 2;
+  const [monogramCustom, setMonogramCustom] = useState<string | null>('AR')
+  const maxLenghtMonogram = 2
   const iconSize: IconSizeType = (() => {
     switch (size) {
-      case "extra-small":
-        return "medium";
-      case "small":
-      case "medium":
-        return "large";
-      case "large":
-      case "extra-large":
-        return "extra-large";
+      case 'extra-small':
+        return 'medium'
+      case 'small':
+      case 'medium':
+        return 'large'
+      case 'large':
+      case 'extra-large':
+        return 'extra-large'
       default:
-        return "medium";
+        return 'medium'
     }
-  })();
+  })()
 
   useEffect(() => {
     if (monogram && monogram.length <= maxLenghtMonogram) {
-      setMonogramCustom(monogramRegex(monogram));
+      setMonogramCustom(monogramRegex(monogram))
     } else if (monogram && monogram.length >= maxLenghtMonogram) {
-      setMonogramCustom(monogramRegex(monogram?.charAt(0).concat(monogram?.charAt(1))));
+      setMonogramCustom(
+        monogramRegex(monogram?.charAt(0).concat(monogram?.charAt(1)))
+      )
+    } else if (monogram && monogram.trim() === '') {
+      setMonogramCustom(null)
     }
-  }, [monogram]);
+  }, [monogram])
 
   return (
-    <RoundedImageContainerStyled
-      size={size}
-      disabled={disabled}
-    >
-      {
-        monogram && !photo &&
-        <small>
-          {monogramCustom}
-        </small>
-      }
-      {photo?.image && photo?.alt && !monogram &&
+    <RoundedImageContainerStyled size={size} disabled={disabled}>
+      {monogram && !photo && (!iconName || iconName) && (
+        <small>{monogramCustom}</small>
+      )}
+      {photo?.image && (!monogram || monogram) && (!iconName || iconName) && (
         <Image
           alt={photo?.alt}
           height={photo.height}
@@ -74,12 +56,12 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
           title={photo?.alt}
           image={photo?.image}
         />
-      }
-      {(!monogramCustom && !photo || iconName) &&
-        <Icon size={iconSize} name={iconName || "person"} />
-      }
+      )}
+      {((!photo && !monogram) || !isNaN(Number(monogram))) && (
+        <Icon size={iconSize} name={iconName?.toLowerCase() ?? 'person'} />
+      )}
     </RoundedImageContainerStyled>
   )
-};
+}
 
-export default RoundedImage;
+export default RoundedImage

@@ -1,76 +1,82 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import * as checkboxStyles from "./styles";
-import { Icon } from "../icon";
-import { Color } from "@cromaui/foundations";
-import { CheckInnerProps, CheckProps } from "./types";
-
-const CheckContainer = styled.div<CheckInnerProps>`
-  ${() => checkboxStyles.checkContainer}
-`;
-const CheckInput = styled.input`
-  ${() => checkboxStyles.checkInput}
-`;
-const CheckArea = styled.label<CheckInnerProps>`
-  ${() => checkboxStyles.checkArea}
-`;
+import React, { useState } from 'react'
+import { Icon } from '../icon'
+import { color } from '@cromaui/foundations'
+import { CheckContainer } from './styles'
+import type { CheckProps } from './types'
 
 const Checkbox: React.FC<CheckProps> = ({
   onChange,
   disabled,
-  value,
-  defaultValue,
+  checked,
+  defaultValue
 }) => {
-  const [isChecked, setIsChecked] = useState(defaultValue || false);
-  const [isPressed, setIsPressed] = useState(false);
+  const [isChecked, setIsChecked] = useState(defaultValue ?? false)
+  const [isPressed, setIsPressed] = useState(false)
+  const [isFocused, setIsFocused] = useState(false)
 
-  const handleCheck = () => {
+  const handleCheck = (): void => {
     if (!disabled) {
-      if (value === undefined) {
-        setIsChecked(!isChecked);
+      if (checked === undefined) {
+        setIsChecked(!isChecked)
       }
       if (onChange) {
-        onChange(!isChecked);
+        setIsChecked(!isChecked)
+        onChange(!isChecked)
       }
     }
-  };
-  const handlePress = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    setIsPressed(!isPressed);
-  };
-  const handleMouseLeave = () => {
+  }
+  const handlePress = (e: React.MouseEvent<HTMLElement>): void => {
+    e.preventDefault()
+    setIsPressed(!isPressed)
+  }
+  const handleMouseLeave = (): void => {
     if (isPressed) {
-      setIsPressed(!isPressed);
+      setIsPressed(!isPressed)
     }
-  };
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>): void => {
+    if (e.key === 'Tab') {
+      setIsFocused(true)
+    }
+  }
+
+  const handleClick = (): void => {
+    setIsFocused(false)
+  }
 
   return (
     <CheckContainer
-      isChecked={isChecked}
+      isChecked={checked ?? isChecked}
       isPressed={isPressed}
+      isFocused={isFocused}
       disabled={disabled}
     >
-      <CheckArea
-        onMouseDown={(e) => handlePress(e)}
-        onMouseUp={(e) => handlePress(e)}
+      <label
+        onMouseDown={(e) => {
+          handlePress(e)
+        }}
+        onMouseUp={(e) => {
+          handlePress(e)
+        }}
         onMouseLeave={handleMouseLeave}
-        isPressed={isPressed}
-        isChecked={value !== undefined ? value : isChecked}
-        disabled={disabled}
+        tabIndex={isFocused ? 0 : -1}
+        onKeyDown={handleKeyDown}
+        onClick={handleClick}
       >
-        <CheckInput
+        <input
           disabled={disabled}
           type="checkbox"
-          checked={value !== undefined ? value : isChecked}
+          checked={checked ?? isChecked}
           onChange={handleCheck}
         />
         <Icon
-          color={disabled ? Color.Neutral[400] : Color.Navy.main}
-          name={value || isChecked ? "check_box" : "check_box_outline_blank"}
+          color={disabled ? color.neutral[400] : color.navy.main}
+          name={checked ?? isChecked ? 'check_box' : 'check_box_outline_blank'}
         />
-      </CheckArea>
+      </label>
     </CheckContainer>
-  );
-};
+  )
+}
 
-export default Checkbox;
+export default Checkbox
