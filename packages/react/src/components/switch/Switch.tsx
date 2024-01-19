@@ -1,97 +1,89 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { Icon } from "../icon";
-import * as SwitchStyles from "./styles";
+import React, { useState } from 'react'
+import { Icon } from '../icon'
+import { SwitchContainer } from './styles'
+import type { SwitchProps } from './types'
 
-type SwitchProps = {
-  onChange?: (isChecked: boolean) => void;
-  disabled?: boolean;
-  value?: boolean;
-  defaultValue?: boolean;
-};
-type SwitchInnerProps = {
-  isChecked: boolean;
-  isPressed: boolean;
-  disabled?: boolean;
-};
-
-// Un div que contiene a todo el componente.
-const SwitchContainer = styled.div`
-  ${() => SwitchStyles.SwitchContainer}
-`;
-
-// El background del componente que contiene al input y al thumb.
-const SwitchArea = styled.label<SwitchInnerProps>`
-  ${() => SwitchStyles.SwitchArea}
-`;
-
-// El input oculto con transparencia 0 para manejo de eventos.
-const SwitchInput = styled.input`
-  ${() => SwitchStyles.SwitchInput}
-`;
-
-// La bolita trasladable del switch que contiene el icono.
-const SwitchThumb = styled.div<SwitchInnerProps>`
-  ${() => SwitchStyles.SwitchThumb}
-`;
-
+/**
+ * Elemento de interfaz de usuario que permite a los usuarios alternar entre dos estados
+ * "verdadero" o "falso" ofreciendo una forma intuitiva de controlar opciones binarias
+ * con retroalimentación visual inmediata. Ideal para activar o desactivar funciones de manera sencilla.
+ */
 const Switch: React.FC<SwitchProps> = ({
   onChange,
-  disabled,
-  value,
-  defaultValue,
+  disabled = false,
+  checked,
+  defaultValue
 }) => {
-  const [isChecked, setChecked] = useState(defaultValue || false);
-  const [isPressed, setIsPressed] = useState(false);
+  const [isChecked, setChecked] = useState(defaultValue ?? false)
+  const [isPressed, setIsPressed] = useState(false)
+  const [isFocused, setIsFocused] = useState(false)
 
-  /* Modifica el estado de "isChecked" y si existe una funcion pasada como parámetro
+  /**
+   * Modifica el estado de "isChecked" y si existe una funcion pasada como parámetro
    * por el usuario, la ejecuta pasándole el estado del "checked".
-   * De esta forma el componente puede ser controlado o no controlado. */
-  const handleCheck = () => {
+   * De esta forma el componente puede ser controlado o no controlado.
+   */
+  const handleCheck = (): void => {
     if (!disabled) {
-      setChecked(!isChecked);
+      if (checked === undefined) {
+        setChecked(!isChecked)
+      }
       if (onChange) {
-        onChange(!isChecked);
+        setChecked(!isChecked)
+        onChange(!isChecked)
       }
     }
-  };
+  }
 
-  /* Eventos para setear en true o falso el estado de isPressed que permite agrandar el thumb */
-  const handlePress = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    setIsPressed(!isPressed);
-  };
-  const handleMouseLeave = () => {
+  const handlePress = (e: React.MouseEvent<HTMLElement>): void => {
+    e.preventDefault()
+    setIsPressed(!isPressed)
+  }
+  const handleMouseLeave = (): void => {
     if (isPressed) {
-      setIsPressed(!isPressed);
+      setIsPressed(!isPressed)
     }
-  };
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>): void => {
+    if (e.key === 'Tab') {
+      setIsFocused(true)
+    }
+  }
+
+  const handleClick = (): void => {
+    setIsFocused(false)
+  }
 
   return (
-    <SwitchContainer>
-      <SwitchArea
-        isChecked={value || isChecked}
-        isPressed={isPressed}
-        onMouseDown={(e) => handlePress(e)}
-        onMouseUp={(e) => handlePress(e)}
-        onMouseLeave={handleMouseLeave}
-        disabled={disabled}
-      >
-        <SwitchInput
+    <SwitchContainer
+      isChecked={checked ?? isChecked}
+      isPressed={isPressed}
+      onMouseDown={(e) => {
+        handlePress(e)
+      }}
+      onMouseUp={(e) => {
+        handlePress(e)
+      }}
+      onMouseLeave={handleMouseLeave}
+      isFocused={isFocused}
+      disabled={disabled}
+      tabIndex={isFocused ? 0 : -1}
+      onKeyDown={handleKeyDown}
+      onClick={handleClick}
+    >
+      <label>
+        <input
           type="checkbox"
-          checked={value || isChecked}
+          checked={checked ?? isChecked}
           onChange={handleCheck}
         />
-        <SwitchThumb
-          disabled={disabled}
-          isChecked={value || isChecked}
-          isPressed={isPressed}
-        >
-          {value || isChecked ? <Icon size="small">check</Icon> : null}
-        </SwitchThumb>
-      </SwitchArea>
+        <div>
+          {checked ?? isChecked ? <Icon size="medium" name="check" /> : null}
+        </div>
+      </label>
     </SwitchContainer>
-  );
-};
+  )
+}
 
-export default Switch;
+export default Switch

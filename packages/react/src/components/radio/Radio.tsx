@@ -1,96 +1,82 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import * as checkboxStyles from "./styles";
-import { Icon } from "../icon";
-import { Color } from "@cromaui/foundations";
+import React, { useState } from 'react'
+import type { ChangeEvent } from 'react'
+import { Icon } from '../icon'
+import { color } from '@cromaui/foundations'
+import { RadioContainer } from './styles'
+import type { RadioPropTypes } from './types'
 
-type RadioProps = {
-  onChange?: (isChecked: boolean) => void;
-  disabled?: boolean;
-  value?: boolean;
-  defaultValue?: boolean;
-  name: string;
-};
-type RadioInnerProps = {
-  isChecked: boolean;
-  isPressed: boolean;
-  disabled?: boolean;
-};
-
-const RadioContainer = styled.div<RadioInnerProps>`
-  ${() => checkboxStyles.radioContainer}
-`;
-const RadioInput = styled.input`
-  ${() => checkboxStyles.radioInput}
-`;
-const RadioArea = styled.label<RadioInnerProps>`
-  ${() => checkboxStyles.radioArea}
-`;
-
-const Radio: React.FC<RadioProps> = ({
+const Radio: React.FC<RadioPropTypes> = ({
   onChange,
   disabled,
+  checked,
   value,
-  defaultValue,
-  name,
+  id,
+  name
 }) => {
-  const [isChecked, setIsChecked] = useState(defaultValue || false);
-  const [isPressed, setIsPressed] = useState(false);
+  const [isPressed, setIsPressed] = useState(false)
+  const [isFocused, setIsFocused] = useState(false)
 
-  const handleCheck = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-
-    console.log("ahre");
-    console.log(!isChecked);
-
-    if (!disabled) {
-      if (value === undefined) {
-        setIsChecked(!isChecked);
-      }
-      if (onChange) {
-        onChange(!isChecked);
-      }
+  const handleRadioChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    if (onChange) {
+      onChange(e)
     }
-  };
-  const handlePress = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    setIsPressed(!isPressed);
-  };
-  const handleMouseLeave = () => {
+  }
+  const handlePress = (e: React.MouseEvent<HTMLElement>): void => {
+    e.preventDefault()
+    setIsPressed(!isPressed)
+  }
+  const handleMouseLeave = (): void => {
     if (isPressed) {
-      setIsPressed(!isPressed);
+      setIsPressed(!isPressed)
     }
-  };
+  }
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>): void => {
+    if (e.key === 'Tab') {
+      setIsFocused(true)
+    }
+  }
+
+  const handleClick = (): void => {
+    setIsFocused(false)
+  }
 
   return (
     <RadioContainer
-      isChecked={isChecked}
       isPressed={isPressed}
+      isFocused={isFocused}
       disabled={disabled}
     >
-      <RadioArea
-        onMouseDown={(e) => handlePress(e)}
-        onMouseUp={(e) => handlePress(e)}
+      <label
+        onMouseDown={(e) => {
+          handlePress(e)
+        }}
+        onMouseUp={(e) => {
+          handlePress(e)
+        }}
         onMouseLeave={handleMouseLeave}
-        isPressed={isPressed}
-        isChecked={value !== undefined ? value : isChecked}
-        disabled={disabled}
-        onClick={(e) => handleCheck(e)}
+        htmlFor={id}
+        tabIndex={isFocused ? 0 : -1}
+        onKeyDown={handleKeyDown}
+        onClick={handleClick}
       >
-        <RadioInput
+        <input
+          id={id}
           disabled={disabled}
           type="radio"
-          checked={value !== undefined ? value : isChecked}
+          checked={checked}
           name={name}
+          value={value}
+          onChange={(e) => {
+            handleRadioChange(e)
+          }}
         />
-        <Icon color={disabled ? Color.Neutral[400] : Color.Navy.main}>
-          {value || isChecked
-            ? "radio_button_checked"
-            : "radio_button_unchecked"}
-        </Icon>
-      </RadioArea>
+        <Icon
+          color={disabled ? color.neutral[400] : color.navy.main}
+          name={checked ? 'radio_button_checked' : ' radio_button_unchecked'}
+        />
+      </label>
     </RadioContainer>
-  );
-};
+  )
+}
 
-export default Radio;
+export default Radio

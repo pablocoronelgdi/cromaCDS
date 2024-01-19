@@ -8,7 +8,8 @@
     "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^6.1.0"
+    "styled-components": "^6.1.0",
+    "@cromaui/foundations": "*"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.2",

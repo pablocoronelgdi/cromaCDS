@@ -1,28 +1,13 @@
-import { ThemeWrapper, Button, Text, Icon, Switch } from "@cromaui/react";
-import { useState } from "react";
+import { Checkbox, ThemeWrapper } from '@cromaui/react'
 
-function App() {
-  const [valu, setValue] = useState(false);
-  const handleSwitch = (value: any) => {
-    console.log("cambiamos:", value);
-  };
-
+function App(): JSX.Element {
   return (
     <>
-      <br />
-      <br />
       <ThemeWrapper $theme="macro">
-        {/*Switch activo controlado y falso*/}
-        <Switch value={valu} onChange={() => setValue(!valu)} />
-        {/*Switch inactivo controlado y falso*/}
-        <Switch value={valu} disabled />
-        {/*Switch activo y true*/}
-        <Switch onChange={handleSwitch} defaultValue={true} />
-        {/*Switch inactivo y true*/}
-        <Switch disabled defaultValue={false} />
+        <Checkbox />
       </ThemeWrapper>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
