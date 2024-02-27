@@ -15,7 +15,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@cromaui/react": "*"
+    "@cromaui/react": "*",
+    "@cromaui/foundations": "*"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "7.5.2",
